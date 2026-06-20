@@ -133,6 +133,29 @@
             animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+        /* Trik mask/shadow untuk bikin lengkungan ke dalam (inverted radius) */
+.custom-curve-left::before,
+.custom-curve-right::after {
+    content: "";
+    position: absolute;
+    bottom: -32px; /* sesuaikan dengan ukuran radius (32px) */
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    pointer-events: none;
+}
+
+.custom-curve-left::before {
+    left: 0;
+    border-radius: 32px 0 0 0;
+    box-shadow: -16px -16px 0 7px #FBBF24; /* Ganti dengan kode HEX warna bg-bpr-yellow mu */
+}
+
+.custom-curve-right::after {
+    right: 0;
+    border-radius: 0 32px 0 0;
+    box-shadow: 16px -16px 0 16px #FBBF24; /* Ganti dengan kode HEX warna bg-bpr-yellow mu */
+}
     </style>
 </head>
 <body class="bg-gray-200 flex justify-center items-start font-sans">
@@ -141,21 +164,17 @@
    <div class="mobile-container flex flex-col h-screen overflow-hidden">
     <!-- 🌟 DIUBAH: bg-white menjadi bg-orange-500 -->
   <!-- GANTI BARIS DIV HEADER LU MENJADI SEPERTI INI -->
-<div class="bg-bpr-yellow sticky top-0 z-40 shadow-md shadow-slate-900/10 shrink-0">
+<div class="bg-bpr-yellow sticky top-0 z-40 shadow-md shadow-slate-900/10 shrink-0 relative custom-curve-left custom-curve-right">
         <div class="px-4 pt-4 pb-3">
             <div class="flex justify-between items-center"> 
                 <div class="flex items-center gap-3">
-                    <!-- <div class="w-13 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm shrink-0 overflow-hidden">
-                        <img src="images/m_approval.png" alt="Logo M-Approval" class="w-full h-full object-contain p-1.5">
-                    </div> -->
-                    <!-- FIX: Ukuran disamakan (w-11 h-11) dan rounded diubah jadi rounded-full -->
+                   
                     <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 overflow-hidden border border-slate-100">
                         <img src="images/m_approval.png" alt="Logo M-Approval" class="w-full h-full object-contain p-2">
                     </div>
                     
                     <div class="min-w-0">
-                        <!-- 🌟 DIUBAH: Warna teks disesuaikan dengan warna putih agar kontras (text-white & text-white/80) -->
-                        <p class="text-[11px] text-white/80 leading-tight" id="greetingText">Selamat Pagi,</p>
+                        <p class="text-[10px] text-white/80 leading-tight" id="greetingText">Selamat Pagi,</p>
                         <h2 class="text-base font-bold text-white truncate" id="userName">John Doe</h2>
                         <div class="flex gap-2 mt-0.5">
                             <p class="text-[10px] text-white/70" id="currentTime">--:--</p>
@@ -165,9 +184,7 @@
                 </div>
                 
                 <div class="relative shrink-0">
-                    <!-- 🌟 DIUBAH: active:bg-gray-100 (putih) diganti menjadi active:bg-white/20 (transparan cerah) -->
                     <button id="notificationBell" class="relative p-2 rounded-full active:bg-white/20 transition">
-                        <!-- 🌟 DIUBAH: text-bpr-dark menjadi text-white -->
                         <i data-lucide="bell" class="w-5 h-5 text-white"></i>
                         <span id="notificationCount" class="notification-badge" style="display: none;">0</span>
                     </button>
@@ -182,12 +199,13 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
+    
     <div class="px-4 py-3 pb-24 overflow-y-auto flex-1 bg-[#F8FAFC]">
         
        <div class="bg-gradient-to-r from-slate-50 to-white rounded-xl p-3 shadow-sm mb-4 border border-gray-100 flex items-center justify-between">
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3">   
        <!-- <div class="p-2 bg-orange-50 text-orange-500 rounded-xl border border-orange-100">
             <i data-lucide="clipboard-list" class="w-4 h-4 text-orange-500"></i>
         </div> -->
