@@ -6,6 +6,8 @@
     <title>M-Approval BPR - Beranda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -27,13 +29,14 @@
         }
         
         .mobile-container {
-            max-width: 428px;
-            margin: 0 auto;
-            background: #E2E8F0; /* 🌟 Diubah jadi light gray sesuai gambar */
-            min-height: 100vh;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+    max-width: 428px;
+    margin: 0 auto;
+    /* Putih ditarik ke 100% biar gradasinya penuh sampai bawah container */
+    background: linear-gradient(180deg, #D4E7FE 0%, #FFFFFF 100%);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
         
         .menu-grid {
             display: grid;
@@ -55,7 +58,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #051651;
+            border: 2px solid white;
             line-height: 1;
         }
 
@@ -102,21 +105,15 @@
             transform: scale(0.94);
         }
 
-        /* 🌟 FIX EFEK CEKUNGAN KIRI & KANAN (LIVIN STYLE) 🌟 */
+       /* 🌟 HEADRNYA SEKARANG TRANSPARAN & BUANG EFEK CEKUNGAN LAMA 🌟 */
         .livin-header-curve {
             position: relative;
-            background-color: #051651;
+            background-color: transparent; /* Dibikin transparan biar gradasi container keliatan */
         }
+        /* Hapus atau komentari bagian .livin-header-curve::before dan ::after lu */
         .livin-header-curve::before,
         .livin-header-curve::after {
-            content: "";
-            position: absolute;
-            bottom: -24px; 
-            width: 24px;
-            height: 24px;
-            background: transparent;
-            pointer-events: none;
-            z-index: 20;
+            display: none; 
         }
         .livin-header-curve::before {
             left: 0;
@@ -169,6 +166,27 @@
     z-index: 2;
     line-height: 1;
 }
+/* Ketika button nav memiliki class active */
+.bottom-nav-item.active {
+    color: #38bdf8 !important; /* Warna biru muda langit (sky-400) */
+}
+
+/* Kasih efek glow menyala pada icon lucide nya */
+.bottom-nav-item.active i {
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+    stroke-width: 2.5; /* Bikin garis icon sedikit lebih tebal saat aktif */
+}
+
+/* Kasih efek glow tipis pada teks di bawah icon */
+.bottom-nav-item.active span {
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+/* Warna nav pas lagi mati / ga di-klik */
+.bottom-nav-item {
+    color: #94a3b8; /* Abu-abu slate-400 */
+    transition: all 0.2s ease;
+}
     </style>
 </head>
 <body class="bg-gray-200 flex justify-center items-start font-sans">
@@ -183,18 +201,18 @@
                 </div>
                 
                 <div class="min-w-0">
-                    <p class="text-[11px] text-white/80 leading-tight" id="greetingText">Selamat Pagi,</p>
-                    <h2 class="text-base font-bold text-white truncate" id="userName">John Doe</h2>
+                    <p class="text-[11px] text-black/80 leading-tight" id="greetingText">Selamat Pagi,</p>
+                    <h2 class="text-base font-bold text-black truncate" id="userName">John Doe</h2>
                     <div class="flex gap-2 mt-0.5">
-                        <p class="text-[10px] text-white/70" id="currentTime">10.34</p>
-                        <p class="text-[10px] text-white/70" id="currentDate">21 Jun 2026</p>
+                        <p class="text-[10px] text-black/70" id="currentTime">10.34</p>
+                        <p class="text-[10px] text-black/70" id="currentDate">21 Jun 2026</p>
                     </div>
                 </div>
             </div>
             
             <div class="relative shrink-0">
                 <button id="notificationBell" class="relative p-2 rounded-full active:bg-white/20 transition">
-                    <i data-lucide="bell" class="w-6 h-6 text-white"></i>
+                    <i data-lucide="bell" class="w-6 h-6 text-[#051651]"></i>
                     <span id="notificationCount" class="notification-badge">4</span>
                 </button>
                 
@@ -210,7 +228,7 @@
     </div>
 
     <!-- <div class="mx-4 -mt-4 bg-white rounded-3xl p-4 relative z-30 shadow-md flex flex-col gap-4"> -->
-        <div class="-mt-4 mx-4 rounded-2xl p-4 bg-[#F3F4F6] relative z-30 shadow-2xl flex flex-col gap-4">
+        <div class="-mt-2 mx-4 relative z-30 flex flex-col gap-4">
 
         <div class="bg-white from-slate-50 to-white rounded-xl p-3 shadow-sm border border-slate-200/50 flex items-center justify-between shrink-0">
             <div class="flex items-center gap-3">   
@@ -278,7 +296,7 @@
                 <h1 class="text-sm font-bold text-bpr-dark tracking-tight">Menu Approval</h1>
                 <button id="showAllMenuBtn" class="text-[#051651] text-xs font-bold active:opacity-70">Lihat Semua →</button>
             </div>
-            <div class="menu-grid bg-white border border-slate-200/60 rounded-2xl p-3 shadow-sm" id="menuGrid"></div>
+            <div class="menu-grid bg-white/90 border-2 border-white rounded-2xl p-3 shadow-md backdrop-blur-sm" id="menuGrid"></div>
         </div>
         
     </div>
@@ -361,6 +379,7 @@
         { id: 26, name: "Pembatalan Blokir Bilyet Deposito", icon: "key-round", pending: 1, urgent: 0 }
     ];
         
+ 
     function setupHomeMenuEvents() {
         document.querySelectorAll('[data-menu], [data-menu-all]').forEach(el => {
             el.addEventListener('click', () => {
@@ -402,7 +421,7 @@
         });
     }
 
-    function renderMenuGrid() {
+   function renderMenuGrid() {
         const menuGrid = document.getElementById('menuGrid');
         const visibleMenus = menus.slice(0, 12);
         menuGrid.innerHTML = visibleMenus.map(menu => {
@@ -410,13 +429,14 @@
             return `
             <div class="menu-item flex flex-col items-center justify-center text-center gap-1.5 cubic-bezier w-full min-w-0" data-menu="${menu.id}">
                 <div class="relative w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
-                    <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.5]"></i>
+                    <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.2]"></i>
                     ${totalPending > 0 ? `<span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm ring-2 ring-white leading-none">${totalPending}</span>` : ''}
                 </div>
                 <span class="text-[9px] text-center text-bpr-dark font-semibold leading-tight break-words w-full px-0.5">${menu.name}</span>
             </div>`
         }).join('');
-        lucide.createIcons(); setupHomeMenuEvents();
+        lucide.createIcons();
+        setupHomeMenuEvents();
     }
 
     function renderAllMenuModal() {
@@ -424,15 +444,16 @@
         allMenuList.innerHTML = menus.map(menu => {
             const totalPending = menu.pending + menu.urgent;
             return `
-            <div class="menu-item flex flex-col items-center justify-center text-center gap-1.5 cursor-pointer py-1 w-full" data-menu-all="${menu.id}">
-                <div class="relative w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
-                    <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.5]"></i>
+            <div class="menu-item group flex flex-col items-center justify-center text-center gap-1.5 cursor-pointer py-1 w-full" data-menu-all="${menu.id}">
+               <div class="relative w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0 transition-all duration-200 group-hover:bg-slate-100">
+                    <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.2]"></i>
                     ${totalPending > 0 ? `<span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm ring-2 ring-white leading-none">${totalPending}</span>` : ''}
                 </div>
                 <span class="text-[9px] text-center text-bpr-dark font-semibold leading-tight break-words w-full px-0.5">${menu.name}</span>
             </div>`
         }).join('');
-        lucide.createIcons(); setupHomeMenuEvents();
+        lucide.createIcons();
+        setupHomeMenuEvents();
     }
 
     function renderFilteredPendingModal() {
@@ -447,16 +468,17 @@
         allMenuList.innerHTML = pendingMenus.map(menu => {
             const totalPending = menu.pending + menu.urgent;
             return `
-                <div class="menu-item flex flex-col items-center justify-center text-center gap-1.5 cursor-pointer py-1 w-full" data-menu-all="${menu.id}">
-                    <div class="relative w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
-                        <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.5]"></i>
+                <div class="menu-item group flex flex-col items-center justify-center text-center gap-1.5 cursor-pointer py-1 w-full" data-menu-all="${menu.id}">
+                    <div class="relative w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0 transition-all duration-200 group-hover:bg-slate-100">
+                        <i data-lucide="${menu.icon}" class="w-5 h-5 text-[#051651] stroke-[2.2]"></i>
                         <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm ring-2 ring-white leading-none">${totalPending}</span>
                     </div>
                     <span class="text-[9px] text-center text-bpr-dark font-semibold leading-tight break-words w-full px-0.5">${menu.name}</span>
                 </div>`;
         }).join('');
-        if (typeof lucide !== 'undefined') lucide.createIcons(); setupHomeMenuEvents();
-    }
+        lucide.createIcons();
+        setupHomeMenuEvents();
+    }   
 
     function updateStatistics() {
         const totalPendingFromMenus = menus.reduce((sum, menu) => sum + (menu.pending + menu.urgent), 0);
