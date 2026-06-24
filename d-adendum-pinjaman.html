@@ -237,7 +237,7 @@
                     let totalDebet = 0; let totalKredit = 0; let hasJournal = false; let countDebet = 0; let countKredit = 0;
                     section.rows.forEach((row, rowIndex) => {
                         const keys = Object.keys(row).filter(k => k !== 'no');
-                        let headerTitle = ''; let headerSubtitle = ''; let headerBadge = ''; let keysToSkip = ['no'];
+                        let headerTitle = ''; let headerSubtitle = ''; let headerBadge = ''; let keysToSkip = ['no','incard'];
                         if (row.noRekening) { headerTitle = row.noRekening; headerSubtitle = row.namaRekening || ''; headerBadge = row.debetKredit || ''; keysToSkip.push('noRekening', 'namaRekening', 'debetKredit'); }
                         else if (keys.length > 0) { const firstKey = keys[0]; headerTitle = row[firstKey]; headerSubtitle = firstKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()); keysToSkip.push(firstKey); }
                         if (row.debetKredit && row.totalNominal) { hasJournal = true; const cleanNominal = parseFloat(row.totalNominal.replace(/[^\d]/g, '')) || 0; if (row.debetKredit.toLowerCase() === 'debet') { totalDebet += cleanNominal; countDebet++; } else if (row.debetKredit.toLowerCase() === 'kredit') { totalKredit += cleanNominal; countKredit++; } }

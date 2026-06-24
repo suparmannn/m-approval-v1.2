@@ -265,18 +265,18 @@
             html += `
                     <div class="flex flex-col py-2 border-t border-gray-50 gap-2 mt-1">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold text-sm text-bpr-dark">CATATAN</span>
-                            <span class="text-xs text-bpr-gray font-medium italic">${item.komentar ? 'Tersimpan' : 'Belum ada catatan'}</span>
+                            <span class="font-bold text-sm text-bpr-dark">KOMENTAR</span>
+                            <span class="text-xs text-bpr-gray font-medium italic">${item.komentar ? 'Tersimpan' : 'Belum ada komentar'}</span>
                         </div>
                         
                         <textarea id="commentInput" rows="2" 
                             class="w-full text-sm p-3 border border-gray-200 rounded-xl bg-slate-50 text-bpr-dark focus:outline-none focus:ring-1 focus:ring-bpr-primary focus:bg-white resize-none" 
-                            placeholder="Ketik catatan di sini...">${item.komentar || ''}</textarea>
+                            placeholder="Ketik komentar di sini...">${item.komentar || ''}</textarea>
                         
                         <div class="flex justify-end">
                             <button id="saveCommentBtn" onclick="simpanKomentar()" 
                                 class="bg-bpr-primary text-white text-xs px-4 py-1.5 rounded-lg font-semibold active:scale-95 transition shadow-sm">
-                                Simpan Catatan
+                                Simpan Komentar
                             </button>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
             }
         }
         
-        showToast('✅ Catatan berhasil disimpan!');
+        showToast('✅ Komentar berhasil disimpan!');
         renderDetail(); // Refresh Tampilan detail agar text tetap sinkron
     }
 

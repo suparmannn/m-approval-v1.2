@@ -214,23 +214,24 @@
     "status": "pending", //default value
     "approvalBy": null, //default value
     "tanggalApproval": null, //default value
+    "komentar":"",
     
     // ===== UNTUK DETAIL DATA =====
     "detailData": [
         {
             "title": "Data Pengguna",
             "fields": [
-                 { "label": "Foto", "value": "images/m_approval.png" },
-                { "label": "Kantor", "value": "888 - KANTOR PUSAT" },
+                //  { "label": "Foto", "value": "images/m_approval.png" },
+                { "label": "Kantor", "value": "888 - KANTOR PUSAT","incard": true },
                 { "label": "Inisial", "value": "TS2" },
-                { "label": "Status", "value": "AKTIF" },
-                { "label": "Departemen", "value": "5000 - TEAM SINERGI" },
+                { "label": "Status", "value": "AKTIF","incard": true },
+                { "label": "Departemen", "value": "5000 - TEAM SINERGI" ,"incard": true},
                 { "label": "Kantor Kas", "value": "-" },
                 { "label": "Username", "value": "TEST1" },
-                { "label": "Nama Lengkap", "value": "TEST1" },
+                { "label": "Nama Lengkap", "value": "Yadi Suryadi" ,"incard": true},
                 { "label": "Email", "value": "yadi.staging@gmail.com" },
                 { "label": "Level", "value": "0 - KOMISARIS" },
-                { "label": "Admin", "value": "TIDAK" }
+                { "label": "Admin", "value": "TIDAK" ,"incard": true}
             ]
         }
     ]
@@ -324,7 +325,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

@@ -221,20 +221,20 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-1-0006089-6" },
-                { "label": "Produk Tabungan", "value": "TD - TABUNGANKU" },
+                { "label": "Produk Tabungan", "value": "TD - TABUNGANKU" ,"incard": true},
                 { "label": "Nama Nasabah", "value": "LIAN AM.ASA" },
                 { "label": "Nomor Identitas", "value": "KTP - 6000004401212127" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" },
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT","incard": true },
                 { "label": "Kantor Kas", "value": "" }
             ]
         },
         {
             "title": "DATA PERSETUJUAN PENUTUPAN REK TABUNGAN",
             "fields": [
-                { "label": "Alasan Penutupan*", "value": "1 - PELAYANAN KURANG MEMUASKAN" },
-                { "label": "Cara Pembayaran*", "value": "TRANSFER KE REKENING BANK INI" },
+                { "label": "Alasan Penutupan*", "value": "1 - PELAYANAN KURANG MEMUASKAN","incard": true },
+                { "label": "Cara Pembayaran*", "value": "TRANSFER KE REKENING BANK INI","incard": true },
                 { "label": "Nomor Rekening", "value": "370-1-111111-7" },
-                { "label": "Nama Pemilik Rekening", "value": "NAME AHMADI APRILIA ENDANG BIN MUTAKIMAN ADABANDAN DOSISORUS MARGARETUS WISKAD" }
+                { "label": "Nama Pemilik Rekening", "value": "Parmanius" ,"incard": true}
             ]
         },
         {
@@ -248,8 +248,8 @@
         {
             "title": "", // Tabel Biaya & Total
             "fields": [
-                { "label": "BIAYA PENUTUPAN REKENING", "value": "5,000.00" },
-                { "label": "Total Dibayar", "value": "Rp 145,000.00" }
+                { "label": "BIAYA PENUTUPAN REKENING", "value": "5,000.00","incard": true },
+                { "label": "Total Dibayar", "value": "Rp 145,000.00","incard": true }
             ]
         }
     ]
@@ -342,7 +342,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

@@ -214,6 +214,7 @@
     "status": "pending", 
     "approvalBy": null, 
     "tanggalApproval": null, 
+    "komentar": "",
     
     // ===== UNTUK DETAIL DATA =====
     "detailData": [
@@ -221,15 +222,15 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-4-0003636-0" },
-                { "label": "Nama Nasabah", "value": "PURDANINGSIH WIDODO" },
-                { "label": "Sisa Baki Debet", "value": "11,287,541.00" },
-                { "label": "Sisa Provisi", "value": "234,368.00" },
+                { "label": "Nama Nasabah", "value": "PURDANINGSIH WIDODO","incard": true },
+                { "label": "Sisa Baki Debet", "value": "11,287,541.00","incard": true },
+                { "label": "Sisa Provisi", "value": "234,368.00","incard": true },
                 { "label": "Sisa Administrasi", "value": "0.00" },
                 { "label": "Sisa Biaya Transaksi", "value": "0.00" },
-                { "label": "Restrukturisasi Ke", "value": "1" },
-                { "label": "Status Restrukturisasi", "value": "20 - Restrukturisasi 1" },
-                { "label": "Cara Restrukturisasi", "value": "01 - Penurunan suku bunga kredit" },
-                { "label": "Alasan Restrukturisasi", "value": "370400036360" },
+                { "label": "Restrukturisasi Ke", "value": "1","incard": true },
+                { "label": "Status Restrukturisasi", "value": "20 - Restrukturisasi 1","incard": true },
+                { "label": "Cara Restrukturisasi", "value": "01 - Penurunan suku bunga kredit","incard": true },
+                { "label": "Alasan Restrukturisasi", "value": "Test aja","incard": true },
                 { "label": "Produk", "value": "AFB - ANUITAS 1 M" },
                 { "label": "Nomor Akad", "value": "PK NOT NOMOR 15" },
                 { "label": "Tanggal Akad", "value": "07/05/2026" },
@@ -257,7 +258,7 @@
                 { "label": "% Denda Pokok", "value": "72.00" },
                 { "label": "% Denda Bunga", "value": "72.00" },
                 { "label": "% Denda Bunga GP", "value": "72.0000" },
-                { "label": "Kolektibilitas", "value": "3 - KURANG LANCAR" },
+                { "label": "Kolektibilitas", "value": "3 - KURANG LANCAR","incard": true },
                 { "label": "No Rek Autodebet", "value": "371100020919" },
                 { "label": "Nama Nasabah Autodebet", "value": "CHUDHOM KRISTIANA" },
                 { "label": "No Rek Pencairan", "value": "371100020919" },
@@ -295,7 +296,7 @@
                 { "label": "Plafond", "value": "11,287,541.00" },
                 { "label": "Nilai Tunai", "value": "11,549,669.00" },
                 { "label": "Kerugian Restruk", "value": "0.00" },
-                { "label": "Alasan Pembatalan", "value": "Salah Rekening" }
+                { "label": "Alasan Pembatalan", "value": "Salah Rekening","incard": true }
                
             ]
         } 
@@ -391,7 +392,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

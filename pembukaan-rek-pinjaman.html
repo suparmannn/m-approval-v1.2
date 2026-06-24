@@ -214,21 +214,21 @@
         "status": "pending", //default value
         "approvalBy": null, //default value
         "tanggalApproval": null, //default value
-        
+          "komentar": "",
         // ===== UNTUK DETAIL DATA =====
         "detailData": [
             {
                 "title": "DATA NASABAH",
                 "fields": [
-                    { "label": "Nomor CIF", "value": "010631" },
-                    { "label": "Nama Nasabah", "value": "YANA PARYONO AMIR" },
-                    { "label": "Tipe Nasabah", "value": "PERORANGAN" },
+                    { "label": "Nomor CIF", "value": "010631","incard": true },
+                    { "label": "Nama Nasabah", "value": "YANA PARYONO AMIR"},
+                    { "label": "Tipe Nasabah", "value": "PERORANGAN","incard": true },
                     { "label": "No Identitas", "value": "7534927276596005" },
                     { "label": "Tanggal Lahir", "value": "25-09-1992" },
                     { "label": "No. Handphone", "value": "087996676457" },
-                    { "label": "Nama Ibu Kandung", "value": "MARSUNAH" },
-                    { "label": "Alamat Utama", "value": "BAWANG BANDAR BANDAR KEC.BUMI TENGAH DUSUN BLOK TUNGGAL III, GULAKGALIK" },
-                    { "label": "Alamat Alternatif", "value": "MARGOREJO CAMPUREJO RW.002, JL.KAYU" }
+                    // { "label": "Nama Ibu Kandung", "value": "MARSUNAH" },
+                    { "label": "Alamat Utama", "value": "BAWANG BANDAR BANDAR KEC.BUMI TENGAH DUSUN BLOK TUNGGAL III, GULAKGALIK" }
+                    // { "label": "Alamat Alternatif", "value": "MARGOREJO CAMPUREJO RW.002, JL.KAYU" }
                 ]
             },
             {
@@ -237,23 +237,23 @@
                     { "label": "Produk*", "value": "KA - KIA" },
                     { "label": "Tanggal Akad*", "value": "18/12/2025" },
                     { "label": "Kantor Kas", "value": "-" },
-                    { "label": "Nama Pada Rekening*", "value": "YANA PARYONO AMIR" },
+                    { "label": "Nama Pada Rekening*", "value": "YANA PARYONO AMIR" ,"incard": true},
                     { "label": "Nomor Akad*", "value": "xzcqwaa" },
                     { "label": "Nomor Rekening*", "value": "888-4-0009776-9" },
-                    { "label": "Metode Bayar Angsuran*", "value": "ANUITAS1" },
+                    { "label": "Metode Bayar Angsuran*", "value": "ANUITAS1","incard": true },
                     { "label": "Bayar Angsuran Ke-1*", "value": "IN ARREAR (R)" },
                     { "label": "Bayar Angsuran Pokok*", "value": "RUTIN" },
                     { "label": "Bayar Angsuran Bunga*", "value": "RUTIN" },
-                    { "label": "Jenis Plafond*", "value": "NON REVOLVING" },
+                    { "label": "Jenis Plafond*", "value": "NON REVOLVING","incard": true },
                     { "label": "Hitung Bunga*", "value": "PLAFOND" },
                     { "label": "Tanggal Buka*", "value": "18/12/2025" },
-                    { "label": "Jangka Waktu*", "value": "12 Bulan" },
+                    { "label": "Jangka Waktu*", "value": "12 Bulan","incard": true },
                     { "label": "Periode Bayar Pokok*", "value": "1 Bulan" },
                     { "label": "Periode Bayar Bunga*", "value": "1 Bulan" },
-                    { "label": "Tanggal Bayar Angsuran*", "value": "18" },
+                    { "label": "Tanggal Bayar Angsuran*", "value": "18","incard": true },
                     { "label": "Angsuran Periode Berikut?", "value": "TIDAK" },
                     { "label": "Diberikan Grace Period?", "value": "TIDAK" },
-                    { "label": "Tanggal JT Sesuai Tanggal Bayar", "value": "YA" },
+                    { "label": "Tanggal JT Sesuai Tanggal Bayar", "value": "YA","incard": true },
                     { "label": "Tanggal Angsuran Pokok Berikut*", "value": "18/01/2026" },
                     { "label": "Tanggal Angsuran Bunga Berikut*", "value": "18/01/2026" },
                     { "label": "Tanggal Jatuh Tempo*", "value": "18/12/2026" },
@@ -275,33 +275,33 @@
                     { "label": "Denda Pokok*", "value": "72.0000" },
                     { "label": "Denda Bunga*", "value": "72.0000" },
                     { "label": "Autodebet Denda", "value": "TIDAK" },
-                    { "label": "Nomor Rekening Pencairan", "value": "-" },
-                    { "label": "Nama Nasabah Pencairan", "value": "-" },
-                    { "label": "Produk Tabungan", "value": "-" },
+                    { "label": "Nomor Rekening Pencairan", "value": "0889988222" },
+                    { "label": "Nama Nasabah Pencairan", "value": "YANA ARYONO AMIR" },
+                    { "label": "Produk Tabungan", "value": "TABUNGANKU" },
                     { "label": "Jumlah Hak Tarik Yang Diblokir", "value": "0.00" }
                 ]
             },
             {
-                "title": "DATA GRACE PERIOD",
+                "title": "", //data grace Period
                 "fields": [
-                    { "label": "Jangka Waktu*", "value": "-" },
-                    { "label": "Bunga Grace Period Berdasarkan*", "value": "-" },
-                    { "label": "Suku Bunga Grace Period*", "value": "-" },
-                    { "label": "% Denda Bunga Grace Period*", "value": "-" },
-                    { "label": "Tanggal Grace Period Berakhir*", "value": "-" },
-                    { "label": "Tanggal Bayar Bunga Grace Period Berikut*", "value": "-" }
+                    // { "label": "Jangka Waktu*", "value": "-" },
+                    // { "label": "Bunga Grace Period Berdasarkan*", "value": "-" },
+                    // { "label": "Suku Bunga Grace Period*", "value": "-" },
+                    // { "label": "% Denda Bunga Grace Period*", "value": "-" },
+                    // { "label": "Tanggal Grace Period Berakhir*", "value": "-" },
+                    // { "label": "Tanggal Bayar Bunga Grace Period Berikut*", "value": "-" }
                 ]
             },
             {
-                "title": "DATA BALLOON PAYMENT",
+                "title": "", //Data ballon payment
                 "fields": [
-                    { "label": "Bunga Balloon Payment*", "value": "-" },
-                    { "label": "Jumlah Pembayaran Pokok*", "value": "-" },
-                    { "label": "Porsi Plafond*", "value": "-" },
-                    { "label": "Nominal Porsi Plafond*", "value": "-" },
-                    { "label": "Durasi*", "value": "-" },
-                    { "label": "Bunga Selama Durasi*", "value": "-" },
-                    { "label": "Bunga Setelah Durasi*", "value": "-" }
+                    // { "label": "Bunga Balloon Payment*", "value": "-" },
+                    // { "label": "Jumlah Pembayaran Pokok*", "value": "-" },
+                    // { "label": "Porsi Plafond*", "value": "-" },
+                    // { "label": "Nominal Porsi Plafond*", "value": "-" },
+                    // { "label": "Durasi*", "value": "-" },
+                    // { "label": "Bunga Selama Durasi*", "value": "-" },
+                    // { "label": "Bunga Setelah Durasi*", "value": "-" }
                 ]
             },
             {
@@ -309,12 +309,12 @@
                 "fields": [
                     { "label": "Jenis Penggunaan*", "value": "10 - Modal kerja" },
                     { "label": "Hubungan Bank*", "value": "20 - Tidak Terkait" },
-                    { "label": "Kelompok", "value": "" },
+                    { "label": "Kelompok", "value": "_" },
                     { "label": "Jenis*", "value": "99 - Jenis Kredit Lainnya" },
                     { "label": "Status Restruk*", "value": "10 - Tidak direstrukturisasi" },
                     { "label": "Sumber Pelunasan Data*", "value": "10 - Gaji/Honor" },
                     { "label": "Jenis Debitur*", "value": "875 - Perorangan lainnya" },
-                    { "label": "Sandi Bank", "value": "" },
+                    // { "label": "Sandi Bank", "value": "" },
                     { "label": "Kategori Usaha*", "value": "1 - Mikro" },
                     { "label": "Penjamin*", "value": "000 - Tanpa penjamin" },
                     { "label": "Bagian Yang Dijaminkan*", "value": "0.0000" },
@@ -325,19 +325,19 @@
                     { "label": "Sektor Ekonomi*", "value": "001110 - RUMAH TANGGA UNTUK PEMILIKAN RUMAH TINGGAL S.D. TIPE 21" },
                     { "label": "Sifat Kredit*", "value": "9 - Lainnya" },
                     { "label": "Kredit Program Pemerintah*", "value": "10 - Kredit yang bukan merupakan kredit/pembiayaan dalam rangka program pemerintah" },
-                    { "label": "Sektor Kredit Usaha Rakyat*", "value": "99 - KUR kepada Sektor Lainnya" },
-                    { "label": "Sandi LPBBTI", "value": "" },
-                    { "label": "Klasifikasi Asset Keuangan", "value": "" },
-                    { "label": "Cadangan Kerugian Penurunan Nilai Aset Baik", "value": "" },
-                    { "label": "Cadangan Kerugian Penurunan Nilai Aset Kurang Baik", "value": "" },
-                    { "label": "Cadangan Kerugian Penurunan Nilai Aset Tidak Baik", "value": "" }
+                    { "label": "Sektor Kredit Usaha Rakyat*", "value": "99 - KUR kepada Sektor Lainnya" }
+                    // { "label": "Sandi LPBBTI", "value": "" },
+                    // { "label": "Klasifikasi Asset Keuangan", "value": "" },
+                    // { "label": "Cadangan Kerugian Penurunan Nilai Aset Baik", "value": "" },
+                    // { "label": "Cadangan Kerugian Penurunan Nilai Aset Kurang Baik", "value": "" },
+                    // { "label": "Cadangan Kerugian Penurunan Nilai Aset Tidak Baik", "value": "" }
                 ]
             },
             {
                 "title": "DATA SLIK *",
                 "fields": [
                     { "label": "Sifat Kredit*", "value": "9 - Lainnya" },
-                    { "label": "Takeover Kredit", "value": "" },
+                    { "label": "Takeover Kredit", "value": "-" },
                     { "label": "Jenis Kredit*", "value": "N99 - Tanpa Akad - Lainnya" },
                     { "label": "Jenis Akad*", "value": "000 - Konvensional" },
                     { "label": "Sektor Ekonomi*", "value": "001110 - RUMAH TANGGA UNTUK PEMILIKAN RUMAH TINGGAL S.D. TIPE 21" },
@@ -437,7 +437,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

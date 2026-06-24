@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>M-Approval - Pembukaan Rekening</title>
+    <title>M-Approval - Pendaftaran Data Nasabah Baru (CIF)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -113,8 +114,8 @@
                     <i data-lucide="arrow-left" class="w-5 h-5 text-bpr-dark"></i>
                 </button>
                 <div class="flex-1">
-                    <h1 class="text-xl font-bold text-bpr-dark tracking-tight">Pembukaan Rekening</h1>
-                    <p class="text-xs text-bpr-gray font-medium mt-0.5">Approval Giro Korporasi</p>
+                    <h1 class="text-xl font-bold text-bpr-dark tracking-tight">Pendaftaran Data Nasabah Baru (CIF)</h1>
+                    <p class="text-xs text-bpr-gray font-medium mt-0.5">Approval Pendaftaran (CIF)</p>
                 </div>
                 <!-- <button id="filterBtn" class="p-2 active:bg-slate-100 relative rounded-xl transition border border-slate-200">
                     <i data-lucide="sliders-horizontal" class="w-4 h-4 text-bpr-dark"></i>
@@ -199,273 +200,113 @@
 
     // ========== DATA ==========
     let approvalData = [
-    // ========== TARIK TUNAI ==========
     { 
-        "id": 1,
-        // ===== UNTUK GRID LIST =====
-        "noApproval": "TRX/2026/001",//dari key
-        "kategori": "withdraw",
-        "judul": "Tarik Tunai",
-        "namaPengaju": "Ahmad Firmansyah",
-        "posisiPengaju": "Teller",
-        "tanggalPengajuan": "2026-06-16",
-        "waktuPengajuan": "09:30",
-        "prioritas": "urgent",
-        "status": "pending",
-        "approvalBy": null,
-        "tanggalApproval": null,
-        "komentar": "",
-        
-        // ===== UNTUK DETAIL DATA =====
-        "detailData": [
-            {
-                "title": "",
-                "fields": [
-                    { "label":"No.Slip", "value": "886655" },
-                    { "label": "No.Rekening", "value":"88990099887" },
-                    {"label": "Pelaku Transaksi", "value": "Diri sendiri","incard": true},
-                    { "label": "Jenis Transaksi","value": "-" },
-                    {"label": "Nominal", "value":"Rp.5.000.000","incard": true  }
-                ]
-            },
-            {
-                "title": "Data Nasabah",
-                "fields": [
-                    { "label": "Nama Nasabah", "value": "Akbar Tunjang","incard": true  },
-                    { "label": "Identitas","value":"-" },
-                    { "label": "Alasan Membutuhkan Persetujuan", "value": "Butuh" ,"incard": true }
-                ]
-            }
-        ]
-    },
-
-    { 
-        "id": 2,
-        // ===== UNTUK GRID LIST =====
-        "noApproval": "TRX/2026/002",
-        "kategori": "withdraw",
-        "judul": "Tarik Tunai",
-        "namaPengaju": "Ahmad Firmansyah",
-        "posisiPengaju": "Teller",
-        "tanggalPengajuan": "2026-06-16",
-        "waktuPengajuan": "09:30",
-        "prioritas": "urgent",
-        "status": "pending",
-        "approvalBy": null,
-        "tanggalApproval": null,
-       "komentar": "",
-        
-        // ===== UNTUK DETAIL DATA =====
-        "detailData": [
-            {
-                "title": "",
-                "fields": [
-                    { "label": "No.Slip", "value": "9988877777" },
-                    { "label": "No.Rekening", "value":"889908899" },
-                    { "label": "Pelaku Transaksi", "value": "Diri sendiri","incard": true  },
-                    { "label": "Jenis Transaksi", "value": "-" },
-                    { "label":"Nominal", "value": "Rp.3.000.000","incard": true  }
-                ]
-            },
-            {
-                "title": "Data Nasabah",
-                "fields": [
-                    { "label": "Nama Nasabah", "value": "Miconius" ,"incard": true },
-                    {"label": "Identitas", "value": "-" },
-                    { "label": "Alasan Membutuhkan Persetujuan", "value": "Butuh" ,"incard": true }
-                ]
-            }
-        ]
-    },
-    { 
-        "id": 3,
-        // ===== UNTUK GRID LIST =====
-        "noApproval": "TRX/2026/003",
-        "kategori": "withdraw",
-        "judul": "Tarik Tunai",
-        "namaPengaju": "Ahmad Firmansyah",
-        "posisiPengaju": "Teller",
-        "tanggalPengajuan": "2026-06-16",
-        "waktuPengajuan": "09:30",
-        "prioritas": "urgent",
-        "status": "pending",
-        "approvalBy": null,
-        "tanggalApproval": null,
-        "komentar": "",
-        
-        // ===== UNTUK DETAIL DATA =====
-        "detailData": [
-            {
-                "title": "",
-                "fields": [
-                    { "label": "No.Slip", "value": "889000987" },
-                    { "label": "No.Rekening", "value":"827188111" },
-                    { "label":"Pelaku Transaksi", "value": "Diri sendiri" ,"incard": true },
-                    { "label": "Jenis Transaksi", "value": "-" },
-                    { "label":"Nominal", "value": "Rp.7.000.000","incard": true  }
-                ]
-            },
-            {
-                "title": "Data Nasabah",
-                "fields": [
-                    {"label": "Nama Nasabah", "value": "Parmanius" ,"incard": true },
-                    { "label": "Identitas", "value": "-" },
-                    { "label": "Alasan Membutuhkan Persetujuan", "value": "Butuh" ,"incard": true }
-                ]
-            }
-        ]
-    },
-{
-    "id": 4,
-    "noApproval": "TRX/2026/004",
-    "kategori": "deposit",
-    "judul": "Setor Tunai",
-    "namaPengaju": "Rina Andriani",
-    "posisiPengaju": "Marketing",
-    "tanggalPengajuan": "2026-06-16",
-    "waktuPengajuan": "13:20",
-    "prioritas": "",
-    "status": "pending",
-    "approvalBy": null,
-    "tanggalApproval": null,
-    "komentar": "",
+    "id": 1,
+    // ===== UNTUK GRID LIST =====
+    "noApproval": "TRX/2026/001", //dummy from ai
+    "kategori": "", //default value
+    "judul": "Pendaftaran Nasabah Baru (CIF)", //default value
+    "namaPengaju": "Ahmad Firmansyah", //dummy from ai
+    "posisiPengaju": "Teller", //dummy from ai
+    "tanggalPengajuan": "2026-06-22", //default value (tanggal hari ini)
+    "waktuPengajuan": "10:59", //dummy from ai
+    "prioritas": "Hight", //default value
+    "status": "pending", //default value
+    "approvalBy": null, //default value
+    "tanggalApproval": null, //default value
+    "komentar":"",
+    // ===== UNTUK DETAIL DATA =====
     "detailData": [
         {
-            "title": "Informasi Transaksi",
+            "title": "DATA IDENTITAS PEMOHON",
             "fields": [
-                { "label": "No.Slip", "value": "1229982" },
-                { "label": "Pelaku Transaksi", "value": "Diri sendiri" ,"incard": true },
-                { "label": "Jenis Transaksi", "value": "-" }
+                { "label": "Nama Lengkap", "value": "SUPARMAN" ,"incard": true},
+                { "label": "Kode Cabang", "value": "888" ,"incard": true},
+                { "label": "WIC", "value": "TIDAK","incard": true },
+                { "label": "Warganegara", "value": "Indonesia","incard": true },
+                { "label": "No CIF", "value": "012210","incard": true },
+                { "label": "NIK", "value": "3603171010960007" },
+                { "label": "Domisili Sesuai ID?", "value": "YA" },
+                // { "label": "Gelar Depan", "value": "SDR" },
+                { "label": "Alamat Sesuai ID", "value": "KP. KADUJAYA" },
+                // { "label": "Gelar Belakang", "value": "" },
+                // { "label": "Nama Panggilan", "value": "PARMANIUS" },
+                // { "label": "RT", "value": "1" },
+                { "label": "Segmen", "value": "KARYAWAN SWASTA" ,"incard": true},
+                // { "label": "RW", "value": "1" },
+                { "label": "Jenis Kelamin", "value": "PRIA" },
+                { "label": "Kodepos", "value": "15810-KELAPA DUA, CURUG SANGERANG" },
+                { "label": "Tanggal Lahir", "value": "10-11-1996" },
+                { "label": "Sandi Lokasi", "value": "0204-TANGERANG, KAB." },
+                { "label": "Tempat Lahir", "value": "TANGERANG" },
+                { "label": "Nama Gadis Ibu Kandung", "value": "SINTIA" },
+                { "label": "Agama", "value": "ISLAM" },
+                { "label": "Status Pernikahan", "value": "BELUM MENIKAH" },
+                { "label": "Pendidikan Terakhir", "value": "S1" },
+                { "label": "NPWP", "value": "111112222222211" },
+                { "label": "Telepon Seluler", "value": "082114432475" },
+                // { "label": "Telepon Alternatif", "value": "" },
+                // { "label": "Alamat Alternatif", "value": "" },
+                // { "label": "Perpencaran", "value": "" },
+                { "label": "Menempati Sejak", "value": "08-06-2009" },
+                { "label": "Jumlah Tanggungan", "value": "2" }
             ]
         },
         {
-            "title": "Data Rekening",
-            "isTable": true,
-            "rows": [
-                {
-                    "no": "1",
-                    "noRekening": "370-1-0004171-9",
-                    "namaRekening": "Rina Andriani",
-                    "debetKredit": "Kredit",
-                    "totalNominal": "Rp.400.000",
-                    "narasi": "Setoran tunai via teller",
-                    "pokok": "Rp.400.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "Nasabah Penting",
-                    "incard": ["noRekening", "namaRekening","totalNominal","debetKredit"]
-                },
-                {
-                    "no": "2",
-                    "noRekening": "370-1-0005678-9",
-                    "namaRekening": "CV MAKMUR JAYA",
-                    "debetKredit": "Kredit",
-                    "totalNominal": "Rp.250.000",
-                    "narasi": "Setoran tunai invoice #INV-002",
-                    "pokok": "Rp.250.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "-",
-                    "incard": ["noRekening", "namaRekening","totalNominal","debetKredit"]
-                },
-                {
-                    "no": "3",
-                    "noRekening": "370-1-0001234-5",
-                    "namaRekening": "PT SEJAHTERA ABADI",
-                    "debetKredit": "Kredit",
-                    "totalNominal": "Rp.150.000",
-                    "narasi": "Setoran tunai pembayaran jasa",
-                    "pokok": "Rp.150.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "-",
-                    "incard": ["noRekening", "namaRekening","totalNominal","debetKredit"]
-                }
-            ]
-        }
-    ]
-},
-    {
-    "id": 5,
-    "noApproval": "TRX/2026/007",
-    "kategori": "transfer",
-    "judul": "Pemindahbukuan",
-    "namaPengaju": "Nia Kurniawati",
-    "posisiPengaju": "Customer Service",
-    "tanggalPengajuan": "2026-06-16",
-    "waktuPengajuan": "09:15",
-    "prioritas": "",
-    "status": "pending",
-    "approvalBy": null,
-    "tanggalApproval": null,
-    "komentar": "",
-    "detailData": [
-        {
-            "title": "Informasi Transaksi",
+            "title": "DATA APU/PPT",
             "fields": [
-                { "label": "No.Slip", "value": "6782992882" },
-                { "label": "Pelaku Transaksi", "value": "Diri sendiri" ,"incard":true},
-                { "label": "Jenis Transaksi", "value": "-" },
-                { "label": "Tanggal Efektif", "value": "2026-06-16 09:15" }
+                { "label": "Nama Nasabah", "value": "SUPARMAN" },
+                { "label": "No CIF", "value": "012210"},
+                { "label": "Pekerjaan", "value": "TEKNOLOGI INFORMASI" },
+                { "label": "Nama Perusahaan", "value": "SINERGY" },
+                { "label": "Jabatan", "value": "STAFF" },
+                { "label": "Bidang Usaha", "value": "PERUSAHAAN MILIK PENGURUS/PEGAWAI BPR YBS" },
+                // { "label": "Pangkat", "value": "STAFF" },
+                { "label": "Alamat Perusahaan", "value": "TEST" },
+                { "label": "Lokasi Tempat Bekerja", "value": "DALAM NEGRI" },
+                { "label": "Kode pos", "value": "15810-KELAPA DUA, CURUG SANGERANG" },
+                // { "label": "Tanggal Mulai Bekerja", "value": "" },
+                { "label": "% Toleransi APU", "value": "125.00","incard": true },
+                { "label": "Tujuan Buka Rekening", "value": "INVESTASI","incard": true },
+                // { "label": "No Telepon Perusahaan 1", "value": "" },
+                // { "label": "No Telepon Perusahaan 2", "value": "" },
+                // { "label": "No Telepon Perusahaan 3", "value": "" },
+                { "label": "Sumber Dana", "value": "GAJI","incard": true },
+                // { "label": "Sumber Dana Tambahan", "value": "" },
+                { "label": "Penghasilan Pertahun", "value": "6,000,000.00","incard": true },
+                { "label": "Terkait PEP", "value": "TIDAK" },
+                { "label": "Uraian PEP", "value": "-" }
             ]
         },
         {
-            "title": "Data Rekening",
-            "isTable": true,
-            "rows": [
-                {
-                    "no": "1",
-                    "noRekening": "370-1-0004171-9",
-                    "namaRekening": "MOEGIYONO SRIANI",
-                    "debetKredit": "Debet",
-                    "totalNominal": "Rp.400.000",
-                    "narasi": "Pemindahbukuan biaya operasional",
-                    "pokok": "Rp.400.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "Butuh approval karena nominal di atas limit",
-                    "incard": ["debetKredit", "totalNominal"]
-                },
-                {
-                    "no": "2",
-                    "noRekening": "370-1-0001234-5",
-                    "namaRekening": "PT MAJU JAYA",
-                    "debetKredit": "Kredit",
-                    "totalNominal": "Rp.250.000",
-                    "narasi": "Pembayaran invoice #INV-001",
-                    "pokok": "Rp.250.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "-",
-                    "incard": ["debetKredit", "totalNominal"]
-                },
-                {
-                    "no": "3",
-                    "noRekening": "370-1-0005678-9",
-                    "namaRekening": "CV KARYA BERSAMA",
-                    "debetKredit": "Kredit",
-                    "totalNominal": "Rp.150.000",
-                    "narasi": "Pembayaran jasa konsultasi",
-                    "pokok": "Rp.150.000",
-                    "bunga": "Rp.0",
-                    "denda": "Rp.0",
-                    "pinalti": "Rp.0",
-                    "alasanPersetujuan": "-",
-                    "incard": ["debetKredit", "totalNominal"]
-                }
+            "title": "DATA PASANGAN / ORANG TUA",
+            "fields": [
+                { "label": "Nama Nasabah", "value": "SUPARMAN" },
+                { "label": "No CIF Nasabah", "value": "012210" },
+                { "label": "Nama Lengkap", "value": "SINTIA" },
+                // { "label": "No CIF", "value": "-" },
+                { "label": "Hubungan Dengan Pemohon", "value": "ORANG TUA" },
+                { "label": "Pisah Harta Pasangan", "value": "TIDAK" },
+                { "label": "Tipe Identitas", "value": "KTP" },
+                { "label": "No Identitas", "value": "3214500021114321" },
+                { "label": "Alamat Tempat Tanggal", "value": "TES" },
+                { "label": "Tanggal Masa Berlaku Identitas", "value": "SELAMANYA" },
+                { "label": "Kode Pos", "value": "15810 - CURUG SANGERANG, KELAPA DUA" },
+                { "label": "Tempat Lahir", "value": "CILACAP" },
+                { "label": "Tanggal Lahir", "value": "19-06-1978" },
+                { "label": "Pekerjaan", "value": "IBU RUMAH TANGGA" }
+                // { "label": "Bidang Usaha", "value": "" },
+                // { "label": "Jabatan", "value": "" },
+                // { "label": "Pangkat/Golongan", "value": "" }
             ]
         }
     ]
 }
 ];
-function syncData() {
-    localStorage.setItem('approvalData', JSON.stringify(approvalData));
-}
+	function syncData() {
+	    localStorage.setItem('approvalData', JSON.stringify(approvalData));
+	}
+
 
     let currentTab = "pending";
     let currentFilter = { date: "", priority: "all" };
@@ -490,23 +331,6 @@ function syncData() {
             default: return priority;
         }
     }
-    function getKategoriClass(kategori) {
-    switch(kategori) {
-        case 'withdraw': return 'bg-blue-500';
-        case 'deposit': return 'bg-emerald-500';
-        case 'transfer': return 'bg-purple-500';
-        default: return 'bg-gray-500';
-    }
-}
-
-function getKategoriText(kategori) {
-    switch(kategori) {
-        case 'withdraw': return 'Tarik Tunai';
-        case 'deposit': return 'Setor Tunai';
-        case 'transfer': return 'Pemindahbukuan';
-        default: return kategori;
-    }
-}
 
     function filterData() {
         let filtered = [...approvalData];
@@ -763,7 +587,6 @@ if (section.isTable && Array.isArray(section.rows)) {
     `;
 }
 
-
     function renderList() {
         resetSelectAllButton();
         const data = getDataByTab(currentTab);
@@ -867,29 +690,19 @@ function showErrorPopup(title, message) {
     }, 5000);
 }
 
-    // Detail page functions
     function goToDetail(id) {
         syncData();
     const item = approvalData.find(d => d.id === id);
     if (!item) return;
     
-    // Jika status approved atau rejected, pakai halaman view (1 file saja)
+    // Jika status approved atau rejected, pakai halaman view
     if (item.status === 'approved' || item.status === 'rejected') {
-        window.location.href = `detail-view-trans-umum.html?id=${id}`;
+        window.location.href = `dv-pendaf-nasabah-baru.html?id=${id}`;
         return;
     }
     
-    // Untuk status pending, redirect ke halaman detail sesuai kategori
-    if (item.kategori === 'withdraw') {
-        window.location.href = `detail-tarik-tunai.html?id=${id}`;
-    } else if (item.kategori === 'deposit') {
-        window.location.href = `detail-setor-tunai.html?id=${id}`;
-    } else if (item.kategori === 'transfer') {
-        window.location.href = `detail-pemindahbukuan.html?id=${id}`;
-    } else {
-        // Fallback untuk data yang tidak punya kategori
-        window.location.href = `detail-approval1.html?id=${id}`;
-    }
+    // Untuk pending, redirect ke halaman detail transaksi GL
+    window.location.href = `d-pendaf-nasabah-baru.html?id=${id}`;
 }
 
 
@@ -929,20 +742,22 @@ function batchReject() {
         'reject'
     );
 }
-
-
+function updateDataAndSave() {
+    localStorage.setItem('approvalData', JSON.stringify(approvalData));
+}
 
 function executeBatchApprove(selectedIds) {
     const successIds = [];
-    const failedIds = [];
+    const failedIds = []; // <--- Siapkan penampung data gagal
     
     selectedIds.forEach(id => {
         const item = approvalData.find(d => d.id === id);
         if (item && item.status === 'pending') {
+            // Simulasi error 30% khusus jika memilih ALL DATA (10 data terpilih)
             const isError = selectedIds.length >= 10 ? (Math.random() < 0.3) : false;
             
             if (isError) {
-                failedIds.push(id);
+                failedIds.push(id); // Masuk list gagal jika terkena internal server error
             } else {
                 item.status = 'approved';
                 item.approvalBy = "John Doe (Direksi)";
@@ -950,18 +765,17 @@ function executeBatchApprove(selectedIds) {
                 item.komentar = "Disetujui massal";
                 successIds.push(id);
             }
+            
         }
+
     });
     
     successIds.forEach(id => selectedItems.delete(id));
-    
-    // ========== SIMPAN PERUBAHAN KE LOCALSTORAGE ==========
-    localStorage.setItem('approvalData', JSON.stringify(approvalData));
-    
     updateBatchMode();
     updateTabCounts();
     renderList();
-    
+    updateDataAndSave();
+    // Tampilkan popup error jika ada data yang gagal masuk database
     if (failedIds.length > 0) {
         showErrorPopup(
             'Internal Server Error',
@@ -974,14 +788,14 @@ function executeBatchApprove(selectedIds) {
     }
 }
 
-// ========== 3. FUNCTION EXECUTE BATCH REJECT ==========
 function executeBatchReject(selectedIds) {
     const successIds = [];
-    const failedIds = [];
+    const failedIds = []; // <--- Siapkan penampung data gagal
     
     selectedIds.forEach(id => {
         const item = approvalData.find(d => d.id === id);
         if (item && item.status === 'pending') {
+            // Simulasi error 30% khusus jika memilih ALL DATA (10 data terpilih)
             const isError = selectedIds.length >= 10 ? (Math.random() < 0.3) : false;
             
             if (isError) {
@@ -997,14 +811,11 @@ function executeBatchReject(selectedIds) {
     });
     
     successIds.forEach(id => selectedItems.delete(id));
-    
-    // ========== SIMPAN PERUBAHAN KE LOCALSTORAGE ==========
-    localStorage.setItem('approvalData', JSON.stringify(approvalData));
-    
     updateBatchMode();
     updateTabCounts();
     renderList();
-    
+    updateDataAndSave();
+    // Tampilkan popup error jika ada data yang gagal masuk database
     if (failedIds.length > 0) {
         showErrorPopup(
             'Internal Server Error',
@@ -1088,8 +899,8 @@ function resetSelectAllButton() {
     // Set default date to today
     // Set default date ke tanggal yang ada data (2026-06-14)
 // SET DEFAULT FILTER KE TANGGAL YANG ADA DATANYA (2026-06-14)
-currentFilter.date = '2026-06-16';
-document.getElementById('dateFilter').value = '2026-06-16';
+currentFilter.date = '2026-06-14';
+document.getElementById('dateFilter').value = '2026-06-14';
     
     // Tab switching
     document.querySelectorAll('.tab-modern').forEach(btn => {

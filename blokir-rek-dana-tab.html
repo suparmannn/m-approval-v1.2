@@ -221,21 +221,21 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-1-0003044-1" },
-                { "label": "Produk Tabungan", "value": "TABUNGANKU" },
-                { "label": "Nama Nasabah", "value": "ARIEF PUTRANTO WIRANDANI" },
-                { "label": "Nomor Identitas", "value": "" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" }
+                { "label": "Produk Tabungan", "value": "TABUNGANKU","incard": true },
+                { "label": "Nama Nasabah", "value": "ARIEF PUTRANTO WIRANDANI" ,"incard": true},
+                { "label": "Nomor Identitas", "value": "0987625244434" },
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" ,"incard": true}
             ]
         },
         {
             "title": "DATA PERSETUJUAN PEMELIHARAAN BLOKIR DANA TABUNGAN",
             "fields": [
-                { "label": "Kode Blokir*", "value": "99 - LAINNYA" },
-                { "label": "Refrensi*", "value": "11" },
+                // { "label": "Kode Blokir*", "value": "99 - LAINNYA" },
+                // { "label": "Refrensi*", "value": "11" },
                 { "label": "Jumlah*", "value": "1,000,000.00" },
                 { "label": "Berlaku Selamanya", "value": "TIDAK" },
                 { "label": "Tanggal Berakhir*", "value": "08/01/2025" },
-                { "label": "Alasan", "value": "" }
+                { "label": "Alasan", "value": "Tabungan Sudah Tidak Pakai" ,"incard": true}
             ]
         }
     ]
@@ -329,7 +329,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

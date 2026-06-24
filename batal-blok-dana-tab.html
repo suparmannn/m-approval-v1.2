@@ -221,10 +221,10 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-1-0005396-5" },
-                { "label": "Produk Tabungan", "value": "TB-TAB UMUM" },
+                { "label": "Produk Tabungan", "value": "TB-TAB UMUM" ,"incard": true},
                 { "label": "Nama Pemilik Rekening", "value": "PINOKIO" },
                 { "label": "Nomor Identitas", "value": "KTP - 3333333333333333" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" }
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" ,"incard": true}
             ]
         },
         {
@@ -233,19 +233,19 @@
                 { "label": "Kode Blokir*", "value": "01 - PINJAMAN" },
                 { "label": "Refrensi*", "value": "1234" },
                 { "label": "Jumlah*", "value": "500,000.00" },
-                { "label": "Berlaku Selamanya", "value": "Tidak" },
-                { "label": "Tanggal Berakhir*", "value": "04/12/2024" },
-                { "label": "Alasan", "value": "" }
+                // { "label": "Berlaku Selamanya", "value": "Tidak" },
+                { "label": "Tanggal Berakhir*", "value": "04/12/2024" }
+                // { "label": "Alasan", "value": "-" }
             ]
         },
         {
             "title": "DATA PENGGUNA",
             "fields": [
-                { "label": "Pengguna Input", "value": "CS CADANGAN" },
-                { "label": "Tanggal Input", "value": "04/04/2024" },
-                { "label": "Pengguna Menyetujui", "value": "OPERASIONAL CADANGAN" },
-                { "label": "Tanggal Menyetujui", "value": "04/04/2024" },
-                { "label": "Alasan Pembatalan*", "value": "BATAL" }
+                // { "label": "Pengguna Input", "value": "CS CADANGAN" },
+                // { "label": "Tanggal Input", "value": "04/04/2024" },
+                // { "label": "Pengguna Menyetujui", "value": "OPERASIONAL CADANGAN" },
+                // { "label": "Tanggal Menyetujui", "value": "04/04/2024" },
+                { "label": "Alasan Pembatalan*", "value": "BATAL" ,"incard": true}
             ]
         }
     ]
@@ -339,7 +339,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

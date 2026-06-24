@@ -214,17 +214,17 @@
     "status": "pending",
     "approvalBy": null,
     "tanggalApproval": null,
-    
+    "komentar":"",
     // ===== UNTUK DETAIL DATA =====
     "detailData": [
         {
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "888-3-0082939-1" },
-                { "label": "Kantor Pemilik Rekening", "value": "888 - KANTOR PUSAT" },
+                { "label": "Kantor Pemilik Rekening", "value": "888 - KANTOR PUSAT","incard": true },
                 { "label": "Kantor Kas", "value": "-" },
-                { "label": "Produk Deposito", "value": "DD - DEP. BJK12" },
-                { "label": "Jangka Waktu Pokok", "value": "12 BULAN" },
+                { "label": "Produk Deposito", "value": "DD - DEP. BJK12","incard": true },
+                { "label": "Jangka Waktu Pokok", "value": "12 BULAN","incard": true },
                 { "label": "Suku Bunga (%)", "value": "6.5000" },
                 { "label": "Periode", "value": "28/05/2025 - 28/05/2026" },
                 { "label": "Nama Nasabah", "value": "DHARWIS HANDAYANI SUNAN TRI" },
@@ -236,19 +236,19 @@
             "fields": [
                 { "label": "Cara Pembayaran*", "value": "TUNAI" },
                 { "label": "Nomor Rekening", "value": "888400094525" },
-                { "label": "Nama Pemilik Rekening", "value": "DHARWIS HANDAYANI SUNAN TRI" }
+                { "label": "Nama Pemilik Rekening", "value": "DHARWIS HANDAYANI SUNAN TRI","incard": true }
             ]
         },
         {
             "title": "RINCIAN SALDO REKENING",
             "fields": [
-                { "label": "Saldo", "value": "666,847,540.00" },
-                { "label": "Bunga Belum Dibayarkan", "value": "0.00" },
+                { "label": "Saldo", "value": "666,847,540.00","incard": true },
+                { "label": "Bunga Belum Dibayarkan", "value": "0.00","incard": true },
                 { "label": "Cadangan Bunga", "value": "2,850,096.00" },
                 { "label": "Bunga Dibayarkan", "value": "2,850,096.00" },
                 { "label": "Pajak", "value": "570,019.00" },
                 { "label": "Penalti", "value": "0.00" },
-                { "label": "Total Dibayar", "value": "669,127,617.00" }
+                { "label": "Total Dibayar", "value": "669,127,617.00","incard": true }
             ]
         }
     ]
@@ -341,7 +341,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

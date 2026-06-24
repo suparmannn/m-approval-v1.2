@@ -161,7 +161,7 @@
     }
 
     // ========== RENDER DETAIL VIEW ==========
-    // ========== RENDER DETAIL VIEW ==========
+     // ========== RENDER DETAIL VIEW ==========
     function renderDetail() {
         const statusText = item.status === 'pending' ? 'Menunggu Persetujuan' : item.status === 'approved' ? 'Disetujui' : 'Ditolak';
         const statusClass = item.status === 'pending' ? 'status-pending' : item.status === 'approved' ? 'status-approved' : 'status-rejected';
@@ -175,22 +175,19 @@
                 <div class="px-5 py-4 flex items-center gap-3">
                     <span class="header-status-dot ${dotClass}"></span>
                     <div>
-                        <h2 class="text-base font-bold text-bpr-dark">${item.judul || 'Detail Transaksi'}</h2>
-                        <p class="text-xs text-bpr-gray">${item.tanggalPengajuan || ''} ${item.waktuPengajuan ? '• ' + item.waktuPengajuan : ''}</p>
+                        <h2 class="text-base font-bold text-bpr-dark tracking-tight">${item.judul || 'Detail Transaksi'}</h2>
+                        <p class="text-xs text-bpr-gray font-medium">${item.tanggalPengajuan || ''} ${item.waktuPengajuan ? '• ' + item.waktuPengajuan : ''}</p>
                     </div>
                 </div>
                 
                 <hr class="section-divider">
         `;
 
-        // ===== LOOP DETAIL DATA (GRID LAYOUT 2 KOLOM) =====
+        // ===== LOOP DETAIL DATA =====
         if (item.detailData && item.detailData.length > 0) {
             let isFirstSection = true;
             
             item.detailData.forEach(section => {
-                const hasValue = section.fields.some(f => f.value && f.value !== "");
-                if (!hasValue) return;
-                
                 if (!isFirstSection) {
                     html += `<hr class="section-divider">`;
                 }
@@ -202,20 +199,151 @@
                     html += `<div class="card-title">${section.title}</div>`;
                 }
                 
-                html += `<div class="detail-grid">`;
-                section.fields.forEach(field => {
-                    // Biar kalau field kosong / nomor HP kosong tetep rapi tampilnya
-                    const fieldValue = field.value && field.value !== "" ? field.value : "-";
-                    const isEmpty = fieldValue === "-";
+                // --- KONDISI A: JIKA MULTI ARRAY (isTable === true) ---
+                if (section.isTable && section.rows && section.rows.length > 0) {
                     
-                    html += `
-                        <div class="detail-item">
-                            <span class="detail-label">${field.label}</span>
-                            <span class="detail-value ${isEmpty ? 'empty' : ''}">${fieldValue}</span>
-                        </div>
-                    `;
-                });
-                html += `</div></div>`;
+                    let totalDebet = 0;
+                    let totalKredit = 0;
+                    let hasJournal = false;
+                    let countDebet = 0;
+                    let countKredit = 0;
+
+                    section.rows.forEach((row, rowIndex) => {
+                        const keys = Object.keys(row).filter(k => k !== 'no');
+                        
+                        let headerTitle = '';
+                        let headerSubtitle = '';
+                        let headerBadge = '';
+                        let keysToSkip = ['no', 'incard'];
+
+                        if (row.noRekening) {
+                            headerTitle = row.noRekening;
+                            headerSubtitle = row.namaRekening || '';
+                            headerBadge = row.debetKredit || '';
+                            keysToSkip.push('noRekening', 'namaRekening', 'debetKredit');
+                        } else if (keys.length > 0) {
+                            const firstKey = keys[0];
+                            headerTitle = row[firstKey];
+                            headerSubtitle = firstKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                            keysToSkip.push(firstKey);
+                        }
+
+                        // Akumulasi dinamis untuk jurnal debet / kredit
+                        if (row.debetKredit && row.totalNominal) {
+                            hasJournal = true;
+                            const cleanNominal = parseFloat(row.totalNominal.replace(/[^\d]/g, '')) || 0;
+                            
+                            if (row.debetKredit.toLowerCase() === 'debet') {
+                                totalDebet += cleanNominal;
+                                countDebet++;
+                            } else if (row.debetKredit.toLowerCase() === 'kredit') {
+                                totalKredit += cleanNominal;
+                                countKredit++;
+                            }
+                        }
+
+                        const badgeClass = headerBadge && headerBadge.toLowerCase() === 'debet' ? 'badge-debet' : 'badge-kredit';
+
+                        html += `
+                            <div class="bg-[#F8FAFC] border border-slate-200 rounded-lg p-2 mb-1.5 last:mb-0">
+                                <details class="group [&_summary::-webkit-details-marker]:hidden" ${rowIndex === 0 ? 'open' : ''}>
+                                    <summary class="flex justify-between items-center cursor-pointer list-none select-none">
+                                        <div class="flex items-center gap-2 flex-1 min-w-0">
+                                            <span class="text-xs font-bold text-bpr-dark truncate tracking-tight">${headerTitle}</span>
+                                            ${headerSubtitle ? `<span class="text-[11px] text-slate-400 font-medium truncate max-w-[140px]">(${headerSubtitle})</span>` : ''}
+                                        </div>
+                                        <div class="flex items-center gap-1.5 shrink-0">
+                                            ${headerBadge ? `<span class="badge-dk ${badgeClass}">${headerBadge}</span>` : ''}
+                                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200 group-open:rotate-180"></i>
+                                        </div>
+                                    </summary>
+                                    
+                                    <div class="flex flex-col gap-1.5 pt-2 mt-2 border-t border-dashed border-slate-200 text-[11px]">
+                                        ${Object.keys(row).map(key => {
+                                            if (keysToSkip.includes(key)) return '';
+                                            if (row[key] === undefined || row[key] === null || row[key] === "") return '';
+
+                                            const formattedLabel = key
+                                                .replace(/([A-Z])/g, ' $1')
+                                                .replace(/^./, str => str.toUpperCase());
+
+                                            const isLongText = ['narasi', 'alasanPersetujuan', 'keterangan'].includes(key) || String(row[key]).length > 30;
+
+                                            if (isLongText) {
+                                                return `
+                                                    <div class="flex flex-col bg-white p-1.5 rounded border border-slate-100">
+                                                        <span class="text-bpr-dark font-bold mb-0.5">${formattedLabel}</span>
+                                                        <span class="text-slate-500 font-medium leading-relaxed" style="word-break: break-word;">${row[key]}</span>
+                                                    </div>
+                                                `;
+                                            } else {
+                                                return `
+                                                    <div class="flex justify-between items-center py-0.5">
+                                                        <span class="text-bpr-dark font-bold">${formattedLabel}</span>
+                                                        <span class="text-slate-500 font-semibold text-right tracking-tight">${row[key]}</span>
+                                                    </div>
+                                                `;
+                                            }
+                                        }).join('')}
+                                    </div>
+                                </details>
+                            </div>
+                        `;
+                    });
+
+                    // --- FOOTER RINGKASAN JURNAL ---
+                    if (hasJournal) {
+                        // Hanya tampilkan status balance badge jika ada mutasi Debet DAN Kredit sekaligus
+                        const showBalanceStatus = countDebet > 0 && countKredit > 0;
+                        let balanceBadge = '';
+
+                        if (showBalanceStatus) {
+                            const isBalance = totalDebet === totalKredit;
+                            balanceBadge = isBalance 
+                                ? `<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-md font-bold border border-green-200"></span>`
+                                : `<span class="bg-red-100 text-red-600 text-[10px] px-2 py-0.5 rounded-md font-bold border border-red-200 animate-pulse"></span>`;
+                        }
+
+                        const formatIDR = (num) => 'Rp ' + num.toLocaleString('id-ID');
+
+                        html += `
+                            <div class="mt-3 p-3 bg-slate-50 rounded-xl border border-slate-200/60">
+                                <div class="flex justify-between items-center mb-2 pb-2 border-b border-slate-200">
+                                    <span class="text-xs font-bold text-bpr-dark tracking-tight">Total Transaksi</span>
+                                   
+                                </div>
+                                <div class="flex flex-col gap-1 text-[11px]">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium">Total Debet</span>
+                                        <span class="font-bold text-sky-700 tracking-tight">${formatIDR(totalDebet)}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium">Total Kredit</span>
+                                        <span class="font-bold text-amber-700 tracking-tight">${formatIDR(totalKredit)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                } 
+                // --- KONDISI B: JIKA REGULAR DATA ---
+                else if (section.fields && section.fields.length > 0) {
+                    html += `<div class="detail-grid">`;
+                    section.fields.forEach(field => {
+                        if (!field.value || field.value === "") return;
+                        const isEmpty = field.value === "-";
+                        
+                        html += `
+                            <div class="detail-item">
+                                <span class="detail-label">${field.label}</span>
+                                <span class="detail-value ${isEmpty ? 'empty' : ''}">${field.value}</span>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+                
+                html += `</div>`;
             });
         }
 
@@ -224,7 +352,7 @@
                 <hr class="section-divider">
                 <div class="px-5 py-3">
                     <div class="flex justify-between items-center py-2">
-                        <span class="font-bold text-sm text-bpr-dark">STATUS</span>
+                        <span class="font-bold text-sm text-bpr-dark tracking-tight">STATUS</span>
                         <span class="status-badge-detail ${statusClass}">${statusText}</span>
                     </div>
         `;
@@ -232,29 +360,32 @@
         // Tampilkan log approval jika status sudah diproses
         if (item.status !== 'pending') {
             html += `
-                    <div class="flex justify-between items-center py-2 border-t border-gray-50">
-                        <span class="font-bold text-sm text-bpr-dark">APPROVAL OLEH</span>
-                        <span class="text-sm text-bpr-gray font-medium">${item.approvalBy || 'John Doe (Direksi)'}</span>
+                    <div class="flex justify-between items-center py-2 border-t border-gray-50 text-xs">
+                        <span class="font-bold text-bpr-dark">APPROVAL OLEH</span>
+                        <span class="text-bpr-gray font-medium">${item.approvalBy || 'John Doe (Direksi)'}</span>
                     </div>
-                    <div class="flex justify-between items-center py-2 border-t border-gray-50">
-                        <span class="font-bold text-sm text-bpr-dark">TANGGAL APPROVAL</span>
-                        <span class="text-sm text-bpr-gray font-medium">${item.tanggalApproval || '-'}</span>
+                    <div class="flex justify-between items-center py-2 border-t border-gray-50 text-xs">
+                        <span class="font-bold text-bpr-dark">TANGGAL APPROVAL</span>
+                        <span class="text-bpr-gray font-medium">${item.tanggalApproval || '-'}</span>
                     </div>
             `;
         }
 
         // ===== FIX KONDISI CATATAN AGAR BENAR-BENAR HILANG JIKA TIDAK ADA DI JSON =====
         // Kita cek: key-nya harus ada, tipenya bukan undefined, dan isinya bukan string kosong/null/strip
+        // Ambil baris di bawah ini untuk lu lepas pasang (tinggal hapus tanda // di awal baris):
+        
         if (item.hasOwnProperty('komentar') && item.komentar !== undefined && item.komentar !== null && item.komentar !== "" && item.komentar !== "-") {
             html += `
-                    <div class="flex flex-col py-2 border-t border-gray-50 gap-1 mt-1">
-                        <span class="font-bold text-sm text-bpr-dark">CATATAN</span>
-                        <p class="text-sm text-bpr-gray font-medium break-words">
+                    <div class="flex flex-col py-2 border-t border-gray-50 gap-1 mt-1 text-xs">
+                        <span class="font-bold text-bpr-dark tracking-tight">CATATAN</span>
+                        <p class="text-bpr-gray font-medium break-words leading-relaxed">
                             ${item.komentar}
                         </p>
                     </div>
             `;
         }
+
 
         // PENUTUP CARD UTAMA YANG BENAR
         html += `
@@ -277,7 +408,6 @@
         
         lucide.createIcons();
     }
-
     // ========== ACTION CONTROLLER (APPROVE / REJECT) ==========
     function showConfirmPopup(title, message, onConfirm, type = 'approve') {
         const popup = document.createElement('div');

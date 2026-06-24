@@ -221,23 +221,23 @@
         {
             "title": "DATA REKENING",
             "fields": [
-                { "label": "Nomor Rekening", "value": "370-3-0011723-1" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" },
-                { "label": "Kantor Kas", "value": "" },
-                { "label": "Produk Deposito", "value": "DA - D.NAS-1 BL" },
-                { "label": "Jangka Waktu Pokok", "value": "1 BULAN" },
+                { "label": "Nomor Rekening", "value": "370-3-0011723-1" ,"incard": true},
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT","incard": true },
+                { "label": "Kantor Kas", "value": "_" },
+                { "label": "Produk Deposito", "value": "DA - D.NAS-1 BL","incard": true },
+                { "label": "Jangka Waktu Pokok", "value": "1 BULAN","incard": true },
                 { "label": "Suku Bunga (%)", "value": "5.7500" },
                 { "label": "Periode", "value": "07/05/2026 - 07/06/2026" },
-                { "label": "Nama Nasabah", "value": "ALINKA MAUDA" },
+                { "label": "Nama Nasabah", "value": "ALINKA MAUDA","incard": true },
                 { "label": "Nomor Identitas", "value": "KTP - 1449563816799992" }
             ]
         },
         {
             "title": "DATA BLOKIR REKENING",
             "fields": [
-                { "label": "Kode Blokir*", "value": "01 - JAMINAN" },
-                { "label": "Referensi*", "value": "ASDA" },
-                { "label": "Alasan", "value": "ADASDADADSA" }
+                // { "label": "Kode Blokir*", "value": "01 - JAMINAN" },
+                // { "label": "Referensi*", "value": "ASDA" },
+                { "label": "Alasan", "value": "Udah Tidak Terpakai" }
             ]
         }
     ]
@@ -331,7 +331,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

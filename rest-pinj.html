@@ -214,26 +214,26 @@
     "status": "pending", 
     "approvalBy": null, 
     "tanggalApproval": null, 
-    
+    "komentar":"",
     // ===== UNTUK DETAIL DATA =====
     "detailData": [
         {
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-4-0003636-0" },
-                { "label": "Nama Nasabah", "value": "PURDANINGSIH WIDODO" },
-                { "label": "Sisa Baki Debet", "value": "11,287,541.00" },
-                { "label": "Sisa Provisi", "value": "234,368.00" },
+                { "label": "Nama Nasabah", "value": "PURDANINGSIH WIDODO","incard": true },
+                { "label": "Sisa Baki Debet", "value": "11,287,541.00","incard": true },
+                { "label": "Sisa Provisi", "value": "234,368.00","incard": true },
                 { "label": "Sisa Administrasi", "value": "0.00" },
                 { "label": "Sisa Biaya Transaksi", "value": "0.00" },
-                { "label": "Restrukturisasi Ke", "value": "1" },
-                { "label": "Status Restrukturisasi", "value": "20 - Restrukturisasi 1" },
-                { "label": "Cara Restrukturisasi", "value": "01 - Penurunan suku bunga kredit" },
-                { "label": "Alasan Restrukturisasi", "value": "370400036360" },
-                { "label": "Produk", "value": "AFB - ANUITAS 1 M" },
+                { "label": "Restrukturisasi Ke", "value": "1","incard": true },
+                { "label": "Status Restrukturisasi", "value": "20 - Restrukturisasi 1" ,"incard": true},
+                { "label": "Cara Restrukturisasi", "value": "01 - Penurunan suku bunga kredit" ,"incard": true},
+                { "label": "Alasan Restrukturisasi", "value": "Pengen res aja","incard": true },
+                { "label": "Produk", "value": "AFB - ANUITAS 1 M" ,"incard": true},
                 { "label": "Nomor Akad", "value": "PK NOT NOMOR 15" },
                 { "label": "Tanggal Akad", "value": "07/05/2026" },
-                { "label": "Metode Bayar Angsuran", "value": "ANUITAS1" },
+                { "label": "Metode Bayar Angsuran", "value": "ANUITAS1" ,"incard": true},
                 { "label": "Tanggal Buka", "value": "07/05/2026" },
                 { "label": "Jangka Waktu", "value": "24 BULAN" },
                 { "label": "JK Waktu Grace Period", "value": "BULAN" },
@@ -257,7 +257,7 @@
                 { "label": "% Denda Pokok", "value": "72.00" },
                 { "label": "% Denda Bunga", "value": "72.00" },
                 { "label": "% Denda Bunga GP", "value": "72.0000" },
-                { "label": "Kolektibilitas", "value": "3 - KURANG LANCAR" },
+                { "label": "Kolektibilitas", "value": "3 - KURANG LANCAR","incard": true },
                 { "label": "No Rek Autodebet", "value": "371100020919" },
                 { "label": "Nama Nasabah Autodebet", "value": "CHUDHOM KRISTIANA" },
                 { "label": "No Rek Pencairan", "value": "371100020919" },
@@ -269,37 +269,37 @@
             "fields": [
                 { "label": "Total Angsuran Pokok", "value": "11,287,541.00" },
                 { "label": "Total Angsuran Bunga", "value": "1,760,851.00" },
-                { "label": "Total Angsuran Pinjaman", "value": "13,048,392.00" },
+                { "label": "Total Angsuran Pinjaman", "value": "13,048,392.00","incard": true },
                 { "label": "Selisih Plafond", "value": "0" }
             ]
         },
         {
             "title": "DATA BIAYA",
             "fields": [
-                { "label": "Baki Debet (Nilai)", "value": "11,287,541.00" },
-                { "label": "Baki Debet (Ditagih)", "value": "0.00" },
-                { "label": "Baki Debet (Dikapitalisasi)", "value": "0.00" },
-                { "label": "Baki Debet (Dihapus)", "value": "0.00" },
-                { "label": "Tunggakan Bunga (Nilai)", "value": "0.00" },
-                { "label": "Tunggakan Bunga (Ditagih)", "value": "0.00" },
-                { "label": "Tunggakan Bunga (Dikapitalisasi)", "value": "0.00" },
-                { "label": "Tunggakan Bunga (Dihapus)", "value": "0.00" },
-                { "label": "Cadangan Bunga (Nilai)", "value": "49,412.00" },
-                { "label": "Cadangan Bunga (Ditagih)", "value": "49,412.00" },
-                { "label": "Cadangan Bunga (Dikapitalisasi)", "value": "0.00" },
-                { "label": "Cadangan Bunga (Dihapus)", "value": "0.00" },
-                { "label": "Denda Tunggakan (Nilai)", "value": "0.00" },
-                { "label": "Denda Tunggakan (Ditagih)", "value": "0.00" },
-                { "label": "Denda Tunggakan (Dikapitalisasi)", "value": "0.00" },
-                { "label": "Denda Tunggakan (Dihapus)", "value": "0.00" },
-                { "label": "Baki Debet EP", "value": "11,287,541.00" },
-                { "label": "Tunggakan Bunga EP", "value": "0.00" },
-                { "label": "Cadangan Bunga EP", "value": "0.00" },
+                // { "label": "Baki Debet (Nilai)", "value": "11,287,541.00" },
+                // { "label": "Baki Debet (Ditagih)", "value": "0.00" },
+                // { "label": "Baki Debet (Dikapitalisasi)", "value": "0.00" },
+                // { "label": "Baki Debet (Dihapus)", "value": "0.00" },
+                // { "label": "Tunggakan Bunga (Nilai)", "value": "0.00" },
+                // { "label": "Tunggakan Bunga (Ditagih)", "value": "0.00" },
+                // { "label": "Tunggakan Bunga (Dikapitalisasi)", "value": "0.00" },
+                // { "label": "Tunggakan Bunga (Dihapus)", "value": "0.00" },
+                // { "label": "Cadangan Bunga (Nilai)", "value": "49,412.00" },
+                // { "label": "Cadangan Bunga (Ditagih)", "value": "49,412.00" },
+                // { "label": "Cadangan Bunga (Dikapitalisasi)", "value": "0.00" },
+                // { "label": "Cadangan Bunga (Dihapus)", "value": "0.00" },
+                // { "label": "Denda Tunggakan (Nilai)", "value": "0.00" },
+                // { "label": "Denda Tunggakan (Ditagih)", "value": "0.00" },
+                // { "label": "Denda Tunggakan (Dikapitalisasi)", "value": "0.00" },
+                // { "label": "Denda Tunggakan (Dihapus)", "value": "0.00" },
+                // { "label": "Baki Debet EP", "value": "11,287,541.00" },
+                // { "label": "Tunggakan Bunga EP", "value": "0.00" },
+                // { "label": "Cadangan Bunga EP", "value": "0.00" },
                 { "label": "Plafond", "value": "11,287,541.00" },
                 { "label": "Nilai Tunai", "value": "11,549,669.00" },
                 { "label": "Kerugian Restruk", "value": "0.00" },
                 { "label": "Angsuran", "value": "543,683.00" },
-                { "label": "Total Biaya Yang Dibebankan Ke Nasabah", "value": "460,000.00" }
+                { "label": "Total Biaya Yang Dibebankan Ke Nasabah", "value": "460,000.00" ,"incard": true}
             ]
         },
         {
@@ -308,7 +308,7 @@
                 { "label": "Suku Bunga EIR", "value": "1.2656" },
                 { "label": "Jumlah Pencairan", "value": "11,192,541.00" },
                 { "label": "Total Biaya Pembukaan", "value": "95,000.00" },
-                { "label": "Sisa Amortize Cost", "value": "" }
+                { "label": "Sisa Amortize Cost", "value": "-" }
             ]
         }
     ]
@@ -402,7 +402,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

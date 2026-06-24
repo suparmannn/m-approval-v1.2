@@ -221,13 +221,13 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "888-3-0075194-5" },
-                { "label": "Kantor Pemilik Rekening", "value": "888 - KANTOR PUSAT" },
+                { "label": "Kantor Pemilik Rekening", "value": "888 - KANTOR PUSAT","incard": true },
                 { "label": "Kantor Kas", "value": "-" },
-                { "label": "Produk Deposito", "value": "DA - DEP. BJK01" },
-                { "label": "Jangka Waktu Pokok", "value": "1 BULAN" },
+                { "label": "Produk Deposito", "value": "DA - DEP. BJK01","incard": true },
+                { "label": "Jangka Waktu Pokok", "value": "1 BULAN","incard": true },
                 { "label": "Suku Bunga (%)", "value": "5.2500" },
-                { "label": "Periode", "value": "18/10/2025 - 18/11/2025" },
-                { "label": "Nama Nasabah", "value": "SATIO" },
+                { "label": "Periode", "value": "18/10/2025 - 18/11/2025","incard": true },
+                { "label": "Nama Nasabah", "value": "SATIO","incard": true },
                 { "label": "Nomor Identitas", "value": "KTP - 9449947850933276" }
             ]
         },
@@ -236,17 +236,17 @@
             "fields": [
                 { "label": "Kode Blokir*", "value": "01 - JAMINAN PINJAMAN" },
                 { "label": "Referensi*", "value": "TEST" },
-                { "label": "Alasan", "value": "AK PAKAI LAGI" }
+                { "label": "Alasan", "value": "TAK PAKAI LAGI" }
             ]
         },
         {
             "title": "DATA PENGGUNA",
             "fields": [
-                { "label": "Pengguna Input", "value": "SP1 - PARMAN1" },
-                { "label": "Tanggal Input", "value": "17/06/2026" },
-                { "label": "Pengguna Menyetujui", "value": "SP2 - PARMAN2" },
-                { "label": "Tanggal Menyetujui", "value": "17/06/2026" },
-                { "label": "Alasan Pembatalan*", "value": "ORANGNYA MAU AKTIFIN LAGI" }
+                // { "label": "Pengguna Input", "value": "SP1 - PARMAN1" },
+                // { "label": "Tanggal Input", "value": "17/06/2026" },
+                // { "label": "Pengguna Menyetujui", "value": "SP2 - PARMAN2" },
+                // { "label": "Tanggal Menyetujui", "value": "17/06/2026" },
+                { "label": "Alasan Pembatalan*", "value": "ORANGNYA MAU AKTIFIN LAGI","incard": true }
             ]
         }
     ]
@@ -340,7 +340,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

@@ -220,14 +220,14 @@
             {
                 "title": "DATA NASABAH",
                 "fields": [
-                    { "label": "No. CIF", "value": "001113" },
-                    { "label": "Nama Nasabah", "value": "EFANDI ARNELIS NURMIATY" },
+                    { "label": "No. CIF", "value": "001113","incard": true },
+                    { "label": "Nama Nasabah", "value": "EFANDI ARNELIS NURMIATY","incard": true  },
                     { "label": "Tanggal Lahir", "value": "07/07/1965" },
                     { "label": "No.Identitas", "value": "2672539438023852" },
                     { "label": "Nomor Handphone", "value": "0832122345" },
                     { "label": "Ibu Kandung", "value": "SUTI" },
-                    { "label": "Alamat Utama", "value": "BANDAR LK GG KEDAMAIAN CITRA GUNUNG RT.009" },
-                    { "label": "Alamat Alternatif", "value": "RT001/RW001 BANDAR SELATAN LAMPUNG" }
+                    { "label": "Alamat Utama", "value": "BANDAR LK GG KEDAMAIAN CITRA GUNUNG RT.009" }
+                    // { "label": "Alamat Alternatif", "value": "RT001/RW001 BANDAR SELATAN LAMPUNG" }
                 ]
             },
             {
@@ -235,8 +235,8 @@
                 "fields": [
                     { "label": "Nomor Rekening*", "value": "888-1-0164391-4" },
                     { "label": "Nama Pada Rekening", "value": "EFANDI ARNELIS NURMIATY" },
-                    { "label": "Jenis Produk*", "value": "TABUNGANKU" },
-                    { "label": "Cara Pengkreditan Bunga*", "value": "Dikredit Ke Rek Sendiri" },
+                    { "label": "Jenis Produk*", "value": "TABUNGANKU" ,"incard": true },
+                    { "label": "Cara Pengkreditan Bunga*", "value": "Dikredit Ke Rek Sendiri","incard": true  },
                     { "label": "No. Rekening Pengkreditan Bunga*", "value": "888-4-0003610-9" },
                     { "label": "Nama Pemilik Rek. Pengkreditan Bunga*", "value": "EFANDI ARNELIS NURMIATY" },
                     { "label": "Nama Bank", "value": "BPR Alami" },
@@ -245,7 +245,7 @@
                     { "label": "Kantor Kas", "value": "-" },
                     { "label": "Nama Instansi", "value": "Dapur Woku" },
                     { "label": "Wilayah", "value": "Domisili" },
-                    { "label": "Status Rekening", "value": "Menunggu Persetujuan Tambah" },
+                    { "label": "Status Rekening", "value": "Menunggu Persetujuan","incard": true  },
                     { "label": "Catat E-Statement", "value": "Ya" },
                     { "label": "Periode Notifikasi / E-Statement", "value": "Bulanan" },
                     { "label": "Notifikasi / Statement", "value": "Surat" },
@@ -343,7 +343,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

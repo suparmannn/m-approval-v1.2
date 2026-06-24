@@ -214,30 +214,30 @@
     "status": "pending", //default value
     "approvalBy": null, //default value
     "tanggalApproval": null, //default value
-    
+    "komentar":"",
     // ===== UNTUK DETAIL DATA =====
     "detailData": [
         {
             "title": "DATA REKENING",
             "fields": [
-                { "label": "Produk Pinjaman*", "value": "KIA IN ADVANCE" },
-                { "label": "Kantor Pemilik Rekening*", "value": "888 - KANTOR PUSAT" },
+                { "label": "Produk Pinjaman*", "value": "KIA IN ADVANCE" ,"incard": true},
+                { "label": "Kantor Pemilik Rekening*", "value": "888 - KANTOR PUSAT" ,"incard": true},
                 { "label": "Nama Nasabah*", "value": "SUKUR AMIN" },
-                { "label": "Nama Pada Rekening*", "value": "SUKUR AMIN" },
+                { "label": "Nama Pada Rekening*", "value": "SUKUR AMIN","incard": true },
                 { "label": "Nomor Identitas*", "value": "0376924222988664" },
                 { "label": "Nomor Rekening*", "value": "888-4-0009452-5" },
                 { "label": "Tanggal Buka*", "value": "13/11/2025" },
                 { "label": "Tanggal Jatuh Tempo*", "value": "13/01/2026" },
-                { "label": "Plafond*", "value": "8,000,000.00" },
-                { "label": "Baki Debet*", "value": "0.00" },
-                { "label": "Sisa Biaya*", "value": "400,000.00" },
-                { "label": "Cadangan PPAP*", "value": "0.00" }
+                { "label": "Plafond*", "value": "8,000,000.00","incard": true },
+                { "label": "Baki Debet*", "value": "0.00" ,"incard": true},
+                { "label": "Sisa Biaya*", "value": "400,000.00" ,"incard": true},
+                { "label": "Cadangan PPAP*", "value": "0.00","incard": true }
             ]
         },
         {
             "title": "DATA PENUTUPAN",
             "fields": [
-                { "label": "Kondisi Penutupan*", "value": "02 - LUNAS" },
+                { "label": "Kondisi Penutupan*", "value": "02 - LUNAS","incard": true },
                 { "label": "Kondisi Penutupan Slik*", "value": "02 - LUNAS" },
                 { "label": "Nomor Referensi*", "value": "TEST" }
             ]
@@ -332,7 +332,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

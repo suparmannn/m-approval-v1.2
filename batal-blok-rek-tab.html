@@ -221,10 +221,10 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-1-0005562-5" },
-                { "label": "Produk Tabungan", "value": "TB - TAB UMUM" },
-                { "label": "Nama Nasabah", "value": "TES ANDREW A" },
+                { "label": "Produk Tabungan", "value": "TB - TAB UMUM","incard": true },
+                { "label": "Nama Nasabah", "value": "TES ANDREW A" ,"incard": true},
                 { "label": "Nomor Identitas", "value": "1231312312323123" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" }
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" ,"incard": true}
             ]
         },
         {
@@ -232,17 +232,17 @@
             "fields": [
                 { "label": "Kode Blokir*", "value": "01 - PINJAMAN" },
                 { "label": "Referensi*", "value": "TEST GT" },
-                { "label": "Alasan", "value": "" }
+                { "label": "Alasan", "value": "Sudah Tidak ada Pemasukan" }
             ]
         },
         {
             "title": "DATA PENGGUNA",
             "fields": [
-                { "label": "Pengguna Input", "value": "GCSO1" },
-                { "label": "Tanggal Input", "value": "11/03/2024" },
-                { "label": "Pengguna Menyetujui", "value": "GKBO" },
-                { "label": "Tanggal Menyetujui", "value": "11/03/2024" },
-                { "label": "Alasan Pembatalan*", "value": "GAJADI" }
+                // { "label": "Pengguna Input", "value": "GCSO1" },
+                // { "label": "Tanggal Input", "value": "11/03/2024" },
+                // { "label": "Pengguna Menyetujui", "value": "GKBO" },
+                // { "label": "Tanggal Menyetujui", "value": "11/03/2024" },
+                { "label": "Alasan Pembatalan*", "value": "Pengen Dibuka Lagi" }
             ]
         }
     ]
@@ -336,7 +336,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

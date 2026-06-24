@@ -221,18 +221,18 @@
             "title": "DATA REKENING",
             "fields": [
                 { "label": "Nomor Rekening", "value": "370-1-0000022-2" },
-                { "label": "Produk Tabungan", "value": "TB - TAB UMUM" },
-                { "label": "Nama Nasabah", "value": "ANUGERAHINY PT TRISAKA" },
-                { "label": "Nomor Identitas", "value": "" },
-                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" }
+                { "label": "Produk Tabungan", "value": "TB - TAB UMUM","incard": true },
+                { "label": "Nama Nasabah", "value": "ANUGERAHINY PT TRISAKA","incard": true },
+                { "label": "Nomor Identitas", "value": "882766652224131" },
+                { "label": "Kantor Pemilik Rekening", "value": "370 - KANTOR PUSAT" ,"incard": true}
             ]
         },
         {
             "title": "DATA PERSETUJUAN PEMELIHARAAN BLOKIR REK TABUNGAN",
             "fields": [
-                { "label": "Kode Blokir*", "value": "01 - PINJAMAN" },
-                { "label": "Referensi*", "value": "370100000222" },
-                { "label": "Alasan", "value": "" }
+                // { "label": "Kode Blokir*", "value": "01 - PINJAMAN" },
+                // { "label": "Referensi*", "value": "370100000222" },
+                { "label": "Alasan", "value": "Sudah Tidak Digunakan" }
             ]
         }
     ]
@@ -326,7 +326,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }

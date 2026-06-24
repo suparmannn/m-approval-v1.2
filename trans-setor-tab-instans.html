@@ -117,10 +117,10 @@
                     <h1 class="text-xl font-bold text-bpr-dark tracking-tight">Transaksi Setoran Tabungan Instansi</h1>
                     <p class="text-xs text-bpr-gray font-medium mt-0.5">Approval Transaksi Setoran Tabungan Instansi</p>
                 </div>
-                <button id="filterBtn" class="p-2 active:bg-slate-100 relative rounded-xl transition border border-slate-200">
+                <!-- <button id="filterBtn" class="p-2 active:bg-slate-100 relative rounded-xl transition border border-slate-200">
                     <i data-lucide="sliders-horizontal" class="w-4 h-4 text-bpr-dark"></i>
                     <span id="filterBadge" class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-bpr-pending rounded-full hidden ring-2 ring-white"></span>
-                </button>
+                </button> -->
             </div>
             
             <!-- Filter Panel -->
@@ -199,318 +199,75 @@
     lucide.createIcons();
 
     // ========== DATA ==========
-    let approvalData = [
-    { 
-        id: 1,
-        // ===== UNTUK GRID LIST =====
-        noApproval: "TRX/2026/001",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Ahmad Firmansyah",
-        posisiPengaju: "Teller",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "09:30",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        // ===== UNTUK DETAIL DATA =====
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "TRX/2026/001" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 09:15" },
-                    { label: "Kantor", value: "-" },
-                    { label: "No.COA", value: "-" },
-                    { label: "Nama COA", value: "-" },
-                    { label: "Keterangan", value: "-" },
-                    { label: "Nominal", value: "Rp.5.000.000" },
-                    { label: "Debet/Kredit", value: "-" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Butuh" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 2,
-        noApproval: "LND/2026/042",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Siti Rahmawati",
-        posisiPengaju: "Account Officer",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "10:15",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "LND/2026/042" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 10:00" },
-                    { label: "Kantor", value: "KCP Dago" },
-                    { label: "No.COA", value: "105.02.001" },
-                    { label: "Nama COA", value: "Piutang Pembiayaan Murabahah" },
-                    { label: "Keterangan", value: "Pengajuan KPR Nasabah Hendra Wijaya" },
-                    { label: "Nominal", value: "Rp.450.000.000" },
-                    { label: "Debet/Kredit", value: "Kredit" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Nominal melebihi batas wewenang AO" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 3,
-        noApproval: "TRX/2026/002",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Rian Hidayat",
-        posisiPengaju: "Accounting Officer",
-        tanggalPengajuan: "2026-06-15",
-        waktuPengajuan: "16:45",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "MEMO/2026/089" },
-                    { label: "Tanggal Efektir", value: "2026-06-15 16:30" },
-                    { label: "Kantor", value: "KC Pusat" },
-                    { label: "No.COA", value: "102.03.002" },
-                    { label: "Nama COA", value: "Pendapatan Operasional Lain" },
-                    { label: "Keterangan", value: "Koreksi salah input biaya admin" },
-                    { label: "Nominal", value: "Rp.2.500.000" },
-                    { label: "Debet/Kredit", value: "Kredit" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Jurnal manual antar-pos wajib validasi" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 4,
-        noApproval: "DEP/2026/015",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Siska Amelia",
-        posisiPengaju: "Customer Service",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "11:00",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "DEP/2026/015" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 10:45" },
-                    { label: "Kantor", value: "KCP Sukajadi" },
-                    { label: "No.COA", value: "202.01.001" },
-                    { label: "Nama COA", value: "Deposito Berjangka" },
-                    { label: "Keterangan", value: "Break deposito PT Sinar Maju" },
-                    { label: "Nominal", value: "Rp.500.000.000" },
-                    { label: "Debet/Kredit", value: "Debet" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Penghapusan penalty denda komitmen khusus" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 5,
-        noApproval: "GRN/2026/088",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Dedi Setiadi",
-        posisiPengaju: "Field Officer",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "13:15",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "GRN-WASTE/2026/102" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 13:00" },
-                    { label: "Kantor", value: "KC Pusat" },
-                    { label: "No.COA", value: "201.03.010" },
-                    { label: "Nama COA", value: "Tabungan Go Green" },
-                    { label: "Keterangan", value: "Konversi saldo pengepul Bank Sampah Bersinar" },
-                    { label: "Nominal", value: "Rp.12.400.000" },
-                    { label: "Debet/Kredit", value: "Kredit" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Pencairan subsidi program di atas batas limit harian" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 6,
-        noApproval: "TRX/2026/005",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Ahmad Firmansyah",
-        posisiPengaju: "Teller",
-        tanggalPengajuan: "2026-06-14",
-        waktuPengajuan: "14:20",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "TRX/2026/005" },
-                    { label: "Tanggal Efektir", value: "2026-06-14 14:15" },
-                    { label: "Kantor", value: "KC Pusat" },
-                    { label: "No.COA", value: "101.01.002" },
-                    { label: "Nama COA", value: "Kas Dalam Perjalanan" },
-                    { label: "Keterangan", value: "Setoran tunai uang rusak nasabah Supardi" },
-                    { label: "Nominal", value: "Rp.3.500.000" },
-                    { label: "Debet/Kredit", value: "Kredit" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Validasi kelayakan fisik uang cacat" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 7,
-        noApproval: "LND/2026/045",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Siti Rahmawati",
-        posisiPengaju: "Account Officer",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "14:00",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "CRT-2024-9981" },
-                    { label: "Tanggal Efektir", value: "2026-07-01 00:00" },
-                    { label: "Kantor", value: "KCP Dago" },
-                    { label: "No.COA", value: "-" },
-                    { label: "Nama COA", value: "-" },
-                    { label: "Keterangan", value: "Keringanan tenor CV Makmur Abadi" },
-                    { label: "Nominal", value: "Rp.185.000.000" },
-                    { label: "Debet/Kredit", value: "-" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Perubahan struktur perjanjian kredit" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 8,
-        noApproval: "ADM/2026/012",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Bambang Tri",
-        posisiPengaju: "IT Support",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "08:15",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "REQ-IT-0992" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 08:15" },
-                    { label: "Kantor", value: "KC Pusat" },
-                    { label: "No.COA", value: "-" },
-                    { label: "Nama COA", value: "-" },
-                    { label: "Keterangan", value: "Reset password terblokir user SUP-DIANA01" },
-                    { label: "Nominal", value: "Rp.0" },
-                    { label: "Debet/Kredit", value: "-" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Hak akses level supervisor butuh approval manager IT" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 9,
-        noApproval: "TRX/2026/010",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Ahmad Firmansyah",
-        posisiPengaju: "Teller",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "15:10",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "LLG/2026/0991" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 15:00" },
-                    { label: "Kantor", value: "KC Pusat" },
-                    { label: "No.COA", value: "101.02.003" },
-                    { label: "Nama COA", value: "Giro Bank Indonesia" },
-                    { label: "Keterangan", value: "Transfer dana hibah Yayasan Harapan" },
-                    { label: "Nominal", value: "Rp.250.000.000" },
-                    { label: "Debet/Kredit", value: "Debet" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Transaksi transfer keluar nominal besar butuh dual-verification" }
-                ]
-            }
-        ]
-    },
-    { 
-        id: 10,
-        noApproval: "DEP/2026/019",
-        judul: "Transaksi General Ledger",
-        namaPengaju: "Siska Amelia",
-        posisiPengaju: "Customer Service",
-        tanggalPengajuan: "2026-06-16",
-        waktuPengajuan: "15:45",
-        prioritas: "urgent",
-        status: "pending",
-        approvalBy: null,
-        tanggalApproval: null,
-       
-        
-        detailData: [
-            {
-                title: "",
-                fields: [
-                    { label: "No.Slip", value: "DEP/2026/019" },
-                    { label: "Tanggal Efektir", value: "2026-06-16 15:40" },
-                    { label: "Kantor", value: "KCP Sukajadi" },
-                    { label: "No.COA", value: "202.01.002" },
-                    { label: "Nama COA", value: "Deposito Komitmen Khusus" },
-                    { label: "Keterangan", value: "Pemberian bunga 5.50% untuk Nasabah Oey Hong Liong" },
-                    { label: "Nominal", value: "Rp.2.000.000.000" },
-                    { label: "Debet/Kredit", value: "Kredit" },
-                    { label: "Alasan Membutuhkan Persetujuan", value: "Suku bunga di atas standar wajib persetujuan direksi" }
-                ]
-            }
-        ]
-    }
+    let approvalData = 
+    [
+  { 
+    "id": 1,
+    // ===== UNTUK GRID LIST =====
+    "noApproval": "TRX/2026/001", //dummy from ai
+    "kategori": "", //default value
+    "judul": "Transaksi Setoran Tabungan Instansi", //default value
+    "namaPengaju": "Ahmad Firmansyah", //dummy from ai
+    "posisiPengaju": "Teller", //dummy from ai
+    "tanggalPengajuan": "2026-06-17", //default value
+    "waktuPengajuan": "09:30", //dummy from ai
+    "prioritas": "Hight", //default value
+    "status": "pending", //default value
+    "approvalBy": null, //default value
+    "tanggalApproval": null, //default value
+    "komentar":"",
+    // ===== UNTUK DETAIL DATA =====
+    "detailData": [
+        {
+            "title": "INFORMASI SLIP",
+            "fields": [
+                { "label": "Nomor Slip", "value": "SITYR20000000028" },
+                { "label": "Instansi", "value": "BT01 - ADI HOGIKU" ,"incard": true }
+            ]
+        },
+        {
+            "title": "DATA REKENING",
+            "isTable": true,
+            "rows": [
+                {
+                    "no": "1",
+                    "noRekening": "370-1-0005472-1",
+                    "namaLengkap": "NISA",
+                    "noRekKredit": "-",
+                    "setoran": "-",
+                    "nominalDibayar": "1,000.00",
+                    "incard": ["noRekening", "namaLengkap","nominalDibayar"]
+                },
+                {
+                    "no": "2",
+                    "noRekening": "370-1-0005639-3",
+                    "namaLengkap": "AMBAR NING HENRY",
+                    "noRekKredit": "-",
+                    "setoran": "-",
+                    "nominalDibayar": "20,000.00",
+                    "incard": ["noRekening", "namaLengkap","nominalDibayar"]
+                },
+                {
+                    "no": "3",
+                    "noRekening": "370-1-0005727-4",
+                    "namaLengkap": "YADI TEST",
+                    "noRekKredit": "-",
+                    "setoran": "-",
+                    "nominalDibayar": "20,000.00",
+                    "incard": ["noRekening", "namaLengkap","nominalDibayar"]
+                }
+            ]
+        },
+        {
+            "title": "TOTAL DATA",
+            "fields": [
+                { "label": "Total Rekening", "value": "3" },
+                { "label": "Total Dibayar", "value": "41,000.00" }
+                
+            ]
+        }
+    ]
+}
 ];
 	function syncData() {
 	    localStorage.setItem('approvalData', JSON.stringify(approvalData));
@@ -600,7 +357,7 @@
         <div class="text-center py-16 bg-white rounded-2xl">
             <img src="images/empty-data.png" alt="Tidak ada data" class="w-48 h-48 mx-auto mb-4" onerror="this.src='https://placehold.co/128x128?text=📋'">
             <h4 class="text-base font-bold text-slate-800 mb-1">Belum Ada Data</h4>
-            <p class="text-sm text-slate-400">Silakan coba filter tanggal lain</p>
+            <p class="text-sm text-slate-400">Tidak ada data yang tersedia</p>
         </div>
     `;
 }
