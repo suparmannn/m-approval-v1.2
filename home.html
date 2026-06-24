@@ -554,13 +554,13 @@
     document.getElementById('closeMenuModal')?.addEventListener('click', () => { document.getElementById('allMenuModal').style.display = 'none'; });
     
     document.querySelectorAll('[data-nav]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const nav = e.currentTarget.dataset.nav;
-            if (nav === 'home') return;
-            else if (nav === 'notification') document.getElementById('notificationBell').click();
-            else if (nav === 'profile') alert(`👤 John Doe\nFitur profil segera hadir`);
-        });
+    btn.addEventListener('click', (e) => {
+        const nav = e.currentTarget.dataset.nav;
+        if (nav === 'home') return;
+        else if (nav === 'notification') window.location.href = 'list-notif.html'; // atau sesuaikan link notif lu
+        else if (nav === 'profile') window.location.href = 'profile.html'; // <--- SEKARANG UDAH NGELINK KE PROFIL
     });
+});
     document.getElementById('bottomNotificationBtn')?.addEventListener('click', () => { window.location.href = 'list-notif.html'; });
     function markAllNotificationsAsRead() { notifications.forEach(notif => { notif.read = true; }); updateNotificationBell(); }
     document.getElementById('markAllReadBtn')?.addEventListener('click', (e) => { e.stopPropagation(); markAllNotificationsAsRead(); });
