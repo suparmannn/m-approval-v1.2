@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>M-Approval BPR - Profil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bpr-yellow': '#FBBF24',
+                        'bpr-dark': '#1F2937',
+                        'bpr-gray': '#6B7280',
+                        'bpr-lightgray': '#F3F4F6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        
+        .mobile-container {
+            max-width: 428px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #D4E7FE 0%, #FFFFFF 100%);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Navigasi Aktif Glow Biru Muda Langit */
+        .bottom-nav-item.active {
+            color: #38bdf8 !important;
+        }
+
+        .bottom-nav-item.active i {
+            filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+            stroke-width: 2.5;
+        }
+
+        .bottom-nav-item.active span {
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+        }
+
+        .bottom-nav-item {
+            color: #94a3b8;
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-200 font-sans">
+    
+<div class="mobile-container flex flex-col h-screen overflow-y-auto pb-28">
+    
+    <!-- Header Profil (Sticky) -->
+    <!-- Perubahan pada class: menambahkan bg-white/80 dan backdrop-blur-md serta border tipis di bawah -->
+<div class="sticky top-0 z-40 shrink-0 pt-6 pb-4 px-4 bg-white/80 backdrop-blur-md border-b border-slate-100/50">
+    <div class="flex items-center gap-3">
+        <button onclick="window.location.href='home.html'" class="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm active:scale-95 transition border border-slate-100">
+            <i data-lucide="arrow-left" class="w-5 h-5 text-[#051651]"></i>
+        </button>
+        <h1 class="text-base font-bold text-[#051651]">Profil Pengguna</h1>
+    </div>
+</div>
+
+    <!-- Konten Utama -->
+    <div class="mx-4 mt-2 flex flex-col gap-4 flex-1">
+        
+        <!-- Card Avatar & Info Ringkas Utama -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200/50 flex flex-col items-center text-center gap-3">
+            <div class="w-20 h-20 rounded-full bg-slate-100 border-2 border-[#051651]/20 flex items-center justify-center shadow-sm text-[#051651] font-bold text-2xl relative">
+                <span id="avatarInitials">JD</span>
+                <div class="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center" title="Status Aktif">
+                    <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-base font-black text-slate-800" id="profileName">John Doe</h2>
+                <p class="text-xs text-slate-500 font-medium" id="profileRole">0 - KOMISARIS</p>
+                <p class="text-[10px] text-slate-400 mt-0.5" id="profileOffice">888 - KANTOR PUSAT</p>
+            </div>
+        </div>
+
+        <!-- Section Detail Data Pengguna (Dinamis dari JSON) -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200/50 flex flex-col gap-3.5" id="profileDetailsContainer">
+            <!-- Title Section -->
+            <div class="border-b border-slate-100 pb-2 flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-[#051651]"></i>
+                <h3 class="text-xs font-bold text-bpr-dark uppercase tracking-wider" id="sectionTitle">Data Pengguna</h3>
+            </div>
+            
+            <!-- List Fields Data (Akan diisi via JavaScript) -->
+            <div class="grid grid-cols-1 gap-3 text-xs" id="fieldsGrid">
+                <!-- Template row loading state -->
+                <div class="text-center text-slate-400 py-4">Memuat data...</div>
+            </div>
+        </div>
+
+        <!-- Tombol Aksi Tambahan & Logout -->
+        <div class="flex flex-col gap-2 mt-2">
+            <button onclick="window.location.href='index.html'" class="w-full bg-red-50 text-red-600 border border-red-200 font-bold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] active:bg-red-100 transition shadow-sm">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Keluar Aplikasi
+            </button>
+            <p class="text-[9px] text-center text-slate-400 font-medium mt-1">M-Approval BPR v1.0.0</p>
+        </div>
+
+    </div>
+
+    <!-- Fixed Bottom Navigation (Menyesuaikan Beranda) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-lg z-40 shrink-0" style="max-width: 428px; margin: 0 auto;">
+        <div class="flex justify-around items-center py-2">
+            <button class="bottom-nav-item flex flex-col items-center gap-0.5" onclick="window.location.href='home.html'">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span class="text-[10px]">Beranda</span>
+            </button>
+            <button class="bottom-nav-item flex flex-col items-center gap-0.5" onclick="window.location.href='list-notif.html'">
+                <div class="relative">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[10px]">Notifikasi</span>
+            </button>
+            <button class="bottom-nav-item active flex flex-col items-center gap-0.5" onclick="window.location.href='profile.html'">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span class="text-[10px]">Profil</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Inisialisasi Ikon Lucide
+    lucide.createIcons();
+
+    // Data JSON Sesuai Permintaan
+    const profilePayload = {
+        "detailData": [
+            {
+                "title": "Data Pengguna",
+                "fields": [
+                    { "label": "Kantor", "value": "888 - KANTOR PUSAT" },
+                    // { "label": "Inisial", "value": "TS2" },
+                    { "label": "Status", "value": "AKTIF" },
+                    { "label": "Departemen", "value": "5000 - TEAM SINERGI" },
+                    { "label": "Kantor Kas", "value": "-" },
+                    { "label": "Username", "value": "TEST1" },
+                    { "label": "Nama Lengkap", "value": "John Doe" },
+                    { "label": "Email", "value": "john.staging@gmail.com" },
+                    { "label": "Level", "value": "0 - KOMISARIS" },
+                    { "label": "Admin", "value": "Ya" }
+                ]
+            }
+        ]
+    };
+
+    function renderProfileData() {
+        const data = profilePayload.detailData[0];
+        
+        // 1. Set Title Section
+        document.getElementById('sectionTitle').innerText = data.title;
+
+        // 2. Ekstrak data krusial untuk bagian Card Atas
+        const namaLengkap = data.fields.find(f => f.label === "Nama Lengkap")?.value || "User";
+        const level = data.fields.find(f => f.label === "Level")?.value || "-";
+        const kantor = data.fields.find(f => f.label === "Kantor")?.value || "-";
+
+        // Update Card Atas
+        document.getElementById('profileName').innerText = namaLengkap;
+        document.getElementById('profileRole').innerText = level;
+        document.getElementById('profileOffice').innerText = kantor;
+
+        // Bikin inisial avatar otomatis (misal John Doe -> JD)
+        const initials = namaLengkap.split(' ').map(name => name[0]).slice(0, 2).join('').toUpperCase();
+        document.getElementById('avatarInitials').innerText = initials;
+
+        // 3. Render Grid Fields Detail Data
+        const fieldsGrid = document.getElementById('fieldsGrid');
+        fieldsGrid.innerHTML = data.fields.map(field => {
+            // Beri warna khusus (hijau badge) jika value-nya bernilai "AKTIF"
+            const isStatusActive = field.label === "Status" && field.value === "AKTIF";
+            const valClass = isStatusActive 
+                ? "bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded text-[10px] font-bold border border-emerald-200" 
+                : "text-slate-800 font-semibold";
+
+            return `
+                <div class="flex justify-between items-start py-2 border-b border-slate-50 last:border-0">
+                    <span class="text-slate-500 font-medium">${field.label}</span>
+                    <span class="text-right max-w-[60%] break-words ${valClass}">${field.value}</span>
+                </div>
+            `;
+        }).join('');
+
+        // Refresh icons barangkali ada penambahan dinamis
+        lucide.createIcons();
+    }
+
+    // Jalankan render setelah DOM siap
+    document.addEventListener("DOMContentLoaded", () => {
+        renderProfileData();
+    });
+</script>
+</body>
+</html>
